@@ -11,7 +11,7 @@ function Sidebar() {
     
     <div className="text-gray-100 text-xl bg-white">
       <button
-        className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-slate-400 text-white bg-gray-100"
+        className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer text-white bg-gray-100"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen}
@@ -29,27 +29,27 @@ function Sidebar() {
 
           <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
             <FontAwesomeIcon icon={faGaugeHigh} />
-            <NavLink to="/DashboardPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/DashboardPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Dashboard
             </NavLink>
           </div>
 
           <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
             <FontAwesomeIcon icon={faCube} />
-            <NavLink to="/AppsPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/AppsPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Apps
             </NavLink>
           </div>
 
           <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
             <FontAwesomeIcon icon={faUser} />
-            <NavLink to="/ExpertPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/ExpertPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Expertos
             </NavLink>
           </div>
 
           <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white ml-5'>
-          <NavLink to="/CustomerPage" className='text-[15px] ml-4 text-gray-200'>
+          <NavLink to="/CustomerPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Clientes
             </NavLink>
           </div>
@@ -63,19 +63,19 @@ function Sidebar() {
           {isProyectosMenuOpen && (
             <div className='ml-6 mt-2'>
             <div className='p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
-            <NavLink to="/ProjectsPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/ProjectsPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Proyectos
             </NavLink>
             </div>
 
             <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
-            <NavLink to="/TaskPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/TaskPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Tareas
             </NavLink>
             </div>
 
             <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
-            <NavLink to="/TaskBoardPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/TaskBoardPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Tablero de Tareas
             </NavLink>
             </div>
@@ -83,21 +83,21 @@ function Sidebar() {
           )}         
           <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
             <FontAwesomeIcon icon={faLayerGroup} />
-            <NavLink to="/PreDiagnosisPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/PreDiagnosisPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Pre Diagnostico
             </NavLink>
           </div>
 
           <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
             <FontAwesomeIcon icon={faMoneyBill1} />
-            <NavLink to="/BillingPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/BillingPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Facturación
             </NavLink>
           </div>
 
           <div className='p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-800 text-white'>
             <FontAwesomeIcon icon={faClock} />
-            <NavLink to="/ReportsPage" className='text-[15px] ml-4 text-gray-200'>
+            <NavLink to="/ReportsPage" className='text-[15px] ml-4 text-gray-200 hover:text-white'>
             Reportes
             </NavLink>
           </div>

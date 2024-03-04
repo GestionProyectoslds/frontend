@@ -9,20 +9,21 @@ const BarraVenta = () => {
   return (
     <div style={{ backgroundColor: "white", borderBottom: "1px solid black", textAlign: "justify", width: "100%", height: "80px", display: "flex", alignItems: "center", justifyContent: "space-between", paddingLeft: "10px", paddingRight: "10px" }}>
       {/* Sección izquierda de la barra, incluye el logo y el botón de menú */}
-      <div style={{ display: "flex", alignItems: "center"}}>
-        <img src={Image} alt="Logo" style={{ marginRight: "10px", background: "White"}} />
-          <Sidebar/>
-        <div style={{ fontSize: "20px", marginLeft: "35px"}}>Community Lab Alliance</div>
+      <div class="flex items-center">
+        <Sidebar />
+        <img src={Image} alt="Logo" class="ml-2 mr-2 bg-white" />
+        <div class="text-lg md:text-xl ml-2">Community Lab Alliance</div>
       </div>
       {/* Sección derecha de la barra, incluye el campo de búsqueda y los botones de notificaciones y mensajes */}
       <div style={{ display: "flex", alignItems: "center" }}>
         {/* Campo de búsqueda */}
-        <div style={{ border: "1px solid black", borderRadius: "5px", marginRight: "150px", marginLeft: "auto" }}>
-          <input type="text" placeholder="Search here" style={{ border: "none", background: "none", outline: "none", padding: "5px" }} />
-          <button style={{ border: "none", background: "none" }}>
-            <FontAwesomeIcon icon={faSearch} />
+        <div class="search-wrapper flex flex-row justify-end items-center w-full md:w-1/2">
+          <input type="text" placeholder="Search here" class="search-input rounded-md px-3 py-2 w-full md:w-3/4 border border-gray-300 focus:border-primary-500 focus:ring-primary-500 focus:ring-opacity-50" />
+          <button type="button">
+            <FontAwesomeIcon icon={faSearch}/>
           </button>
         </div>
+
         {/* Botón de notificaciones */}
         <button style={{ border: "none", background: "none", marginRight: "5px", marginLeft: "1px" }}>
           <FontAwesomeIcon icon={faBell} />
