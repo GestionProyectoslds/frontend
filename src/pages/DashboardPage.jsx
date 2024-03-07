@@ -3,13 +3,14 @@ import axios from 'axios';
 import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCubes, faDollarSign, faGem, faUser, faCircleDot } from '@fortawesome/free-solid-svg-icons';
+import Array from '../components/Array';
 
 const DashboardPage = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
-            const token = 'your_token_here'; // replace with your token
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJyb2xlIjoiTm9ybWFsIiwibmJmIjoxNzA5ODUxMDEyLCJleHAiOjE3MDk5Mzc0MTIsImlhdCI6MTcwOTg1MTAxMn0.B0Ws_i4aztnlxzTeJr-63FJm9IPLmoR3qyCRAmzu2sI'; // replace with your token
             const config = {
                 headers: { Authorization: `Bearer ${token}` }
             };
@@ -48,7 +49,7 @@ const DashboardPage = () => {
                         <FontAwesomeIcon icon={faDollarSign} color="orange" size='2x'/>
                         <form className='flex justify-between mt-5'>
                             <h2 className="text-lg font-bold mb-2 text-gray-950 sm:text-lg">Clientes</h2>
-                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-9 sm:text-lg">44</h2>
+                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-9 sm:text-lg">{data.normalUsersCount}</h2>
                         </form>
                     </div>
                 </div>
@@ -56,8 +57,8 @@ const DashboardPage = () => {
                     <div className="bg-white border rounded-md shadow-md p-4">
                         <FontAwesomeIcon icon={faGem} color="orange" size='2x'/>
                         <form className='flex justify-between  mt-5'>
-                            <h2 className="text-lg font-bold mb-2 text-gray-950 sm:text-lg">Tareas</h2>
-                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-9 sm:text-lg">37</h2>
+                            <h2 className="text-lg font-bold mb-2 stext-gray-950 sm:text-lg">Tareas</h2>
+                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-9 sm:text-lg">{data.activitiesCount}</h2>
                         </form>
                     </div>
                 </div>
@@ -66,7 +67,7 @@ const DashboardPage = () => {
                         <FontAwesomeIcon icon={faUser} color="orange" size='2x'/>
                         <form className='flex justify-between  mt-5'>
                             <h2 className="text-lg font-bold mb-2 text-gray-950 sm:text-lg">Expertos</h2>
-                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-9 sm:text-lg">218</h2>
+                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-9 sm:text-lg">{data.expertUsersCount}</h2>
                         </form>
                     </div>
                 </div>
@@ -83,7 +84,7 @@ const DashboardPage = () => {
                                     <form action="">
                                         <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Totales</h2>
                                     </form>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">385</h2>
+                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">{data.activitiesCount}</h2>
                                 </div>
                             </div>    
                             <div className="w-full md:w-1/2 p-4">
@@ -95,6 +96,7 @@ const DashboardPage = () => {
                                 </div>
                             </div>
                         </form>
+                        <Array activitiesCountByStatus={data.activitiesCountByStatus}/>
                 <div className='bg-white border rounded-md p-4'>                    
                     <form className='flex justify-between  mt-5'>
                     <FontAwesomeIcon icon={faCircleDot} color='Purple'/>
