@@ -1,7 +1,20 @@
 import React from 'react';
 import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCubes, faDollarSign, faGem, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCubes, faDollarSign, faGem, faUser, faCircleDot } from '@fortawesome/free-solid-svg-icons';
+
+const getData = async (token) => {
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+
+    try {
+        const response = await axios.get('http://localhost:5153/api/Statistics', config);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 const DashboardPage = () => {
     return(
@@ -51,43 +64,7 @@ const DashboardPage = () => {
 
 
             <div className='mx-auto flex flex-row'>
-                    <div className='w-full md:w-1/2 p-4'>
-                        <div className='bg-white border rounded-md p-4'>
-                            <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Estadísticas</h2>
-                            <div className="bg-white border rounded-md shadow-md p-4">
-                                <form className='flex justify-between'>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Hoy Salir</h2>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">4/65</h2>
-
-                                </form>
-                            </div>
-                            <div className="bg-white border rounded-md shadow-md p-4">
-                                <form className='flex justify-between'>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Factura Pendiente</h2>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">15/92</h2>
-                                </form>
-                            </div>
-                            <div className="bg-white border rounded-md shadow-md p-4">
-                                <form className='flex justify-between'>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Proyectos Completados</h2>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">85/112</h2>
-                                </form>
-                            </div>
-                            <div className="bg-white border rounded-md shadow-md p-4">
-                                <form className='flex justify-between'>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Entrada Abiertas</h2>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">190/212</h2>
-                                </form>
-                            </div>
-                            <div className="bg-white border rounded-md shadow-md p-4">
-                                <form className='flex justify-between'>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Entradas Cerradas</h2>
-                                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">22/212</h2>
-                                </form>
-                            </div>
-                        </div>
-                    </div> 
-                <div className='w-full md:w-1/2 p-4'>         
+                <div className='w-full p-4'>         
                     <div className='bg-white border rounded-md p-4'>
                             <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Estadísticas de Tareas</h2>
                         <form className='flex justify-between'>
@@ -108,10 +85,38 @@ const DashboardPage = () => {
                                 </div>
                             </div>
                         </form>
-                    </div>
+                <div className='bg-white border rounded-md p-4'>                    
+                    <form className='flex justify-between  mt-5'>
+                    <FontAwesomeIcon icon={faCircleDot} color='Purple'/>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas Completadas</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 166</h2>
+                    </form>
+                    <form className='flex justify-between  mt-5'>
+                    <FontAwesomeIcon icon={faCircleDot} color='Pink'/>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas en Curso</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 115</h2>
+                    </form>
+                    <form className='flex justify-between  mt-5'>
+                    <FontAwesomeIcon icon={faCircleDot} color='Green'/>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas en Espera</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 31</h2>
+                    </form>
+                    <form className='flex justify-between  mt-5'>
+                    <FontAwesomeIcon icon={faCircleDot} color='Red'/>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas Pendientes</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 47</h2>
+                    </form>
+                    <form className='flex justify-between  mt-5'>
+                    <FontAwesomeIcon icon={faCircleDot} color='Blue'/>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas a Revisar</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 5</h2>
+                    </form>                    
                 </div>
             </div>
+            </div>
     </div>
+</div>
+
     );
 }
 

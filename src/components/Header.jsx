@@ -12,12 +12,11 @@ const BarraVenta = () => {
       <div class="flex items-center">
         <Sidebar />
         <img src={Image} alt="Logo" class="ml-2 mr-2 bg-white" />
-        <div class="text-lg md:text-xl ml-2">Community Lab Alliance</div>
       </div>
       {/* Sección derecha de la barra, incluye el campo de búsqueda y los botones de notificaciones y mensajes */}
       <div style={{ display: "flex", alignItems: "center" }}>
         {/* Campo de búsqueda */}
-        <div class="search-wrapper flex flex-row justify-end items-center w-full md:w-1/2">
+        <div class="search-wrapper flex flex-row justify-end items-center w-full mr-20">
           <input type="text" placeholder="Search here" class="search-input rounded-md px-3 py-2 w-full md:w-3/4 border border-gray-300 focus:border-primary-500 focus:ring-primary-500 focus:ring-opacity-50" />
           <button type="button">
             <FontAwesomeIcon icon={faSearch}/>
