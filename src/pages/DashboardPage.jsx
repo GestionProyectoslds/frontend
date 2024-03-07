@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCubes, faDollarSign, faGem, faUser, faCircleDot } from '@fortawesome/free-solid-svg-icons';
 
-const getData = async (token) => {
-    const config = {
-        headers: { Authorization: `Bearer ${token}` }
-    };
-
-    try {
-        const response = await axios.get('http://localhost:5153/api/Statistics', config);
-        return response.data;
-    } catch (error) {
-        console.error(error);
-    }
-};
-
 const DashboardPage = () => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const token = 'your_token_here'; // replace with your token
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+            try {
+                const response = await axios.get('http://localhost:5153/api/Statistics', config);
+                setData(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []); // Empty array means this effect runs once on mount
+
+    if (!data) {
+        return <div>Loading...</div>;
+    }
     return(
 
     <div>
@@ -29,7 +39,7 @@ const DashboardPage = () => {
                         <FontAwesomeIcon icon={faCubes} color="orange" size='2x'/>
                         <form className='flex justify-between mt-5'>
                             <h2 className="text-lg font-bold mb-2 text-gray-950 sm:text-lg">Proyectos</h2>
-                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-10 sm:text-lg">112</h2>
+                            <h2 className="text-xl font-bold mb-2 text-gray-950 mr-10 sm:text-lg">{data.activeProjectsCount}</h2>
                         </form>
                     </div>
                 </div>
