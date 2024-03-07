@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import Cookies from 'js-cookie';
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
+
+  const [serverResponse, setServerResponse] = useState("");  // Nuevo estado para la respuesta del servidor
+
 
   const logInSubmit = async (event) => {
     event.preventDefault();
@@ -19,18 +23,32 @@ const LoginPage = () => {
           password,
         }
       );
+
       if (response.status === 200) {
+        const token = response.data.token;
+
+        // Guarda el token en una cookie con una duración (en segundos)
+        const expirationDate = new Date(new Date().getTime() + 2 * 60 * 1000);
+        Cookies.set('token', token, { expires: expirationDate });
+
+        // Actualiza el estado con el mensaje de la respuesta del servidor
+        setServerResponse(`Token establecido correctamente: ${token}`);
+
         navigate("/DashboardPage");
       } else {
+        // Manejar otros casos si es necesario
+        setServerResponse(`Error en la respuesta del servidor: ${response.status}`);
       }
     } catch (error) {
       setError(error.message);
+      setServerResponse(`Error en la solicitud: ${error.message}`);
     }
   };
 
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md max-w-md w-full">
+      <div className="bg-white p-8 rounded shadow-md max-w-md w-full md:w-full lg:w-auto">
         <a href="/HomePage">
           <img
             id="logo"
@@ -105,9 +123,19 @@ const LoginPage = () => {
               </Link>
             </div>
           </div>
+
+          {/* Nuevo elemento para mostrar la respuesta del servidor */}
+          <div className="mb-3">
+            <p>{serverResponse}</p>
+          </div>
+
         </form>
+
+        {error && (
+          <p className="text-red-500 text-sm mt-2 flex justify-center">{error}</p>
+        )}
+
       </div>
-      {error && <p>{error}</p>}
     </div>
   );
 };
