@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Cookies from 'js-cookie';
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ const LoginPage = () => {
         const token = response.data.token;
 
         // Guarda el token en una cookie con una duración (en segundos)
-        const expirationDate = new Date(new Date().getTime() + 2 * 60 * 1000);
+        const expirationDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
         Cookies.set('token', token, { expires: expirationDate });
 
         // Actualiza el estado con el mensaje de la respuesta del servidor

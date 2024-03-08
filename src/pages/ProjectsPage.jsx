@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import Header from '../components/Header';
 import SearchButton from '../components/sidebarProyects-components/SearchButton';
 import Image from "../images/imgavatarProyec/jefe.jpg";
-import Image1 from "../images/imgavatarProyec/chems.jpg";
-import Image2 from "../images/imgavatarProyec/hams1.jpg";
-import Image3 from "../images/imgavatarProyec/pedillos.jpg";
-import Image4 from "../images/imgavatarProyec/pensando.jpg";
+
 import "../styles/searchview.css";
 
 const ProjectPage = () => {
@@ -58,16 +55,16 @@ const ProjectPage = () => {
   
           <div className="team-photos">
             <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="team-size">
               <div className="indicator">4</div>
@@ -105,16 +102,16 @@ const ProjectPage = () => {
   
           <div className="team-photos">
             <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="team-size">
               <div className="indicator">4</div>
@@ -153,16 +150,16 @@ const ProjectPage = () => {
   
           <div className="team-photos">
             <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="team-size">
               <div className="indicator">4</div>
@@ -200,16 +197,16 @@ const ProjectPage = () => {
   
           <div className="team-photos">
             <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
+              <img src={Image} alt="Foto del miembro del equipo" />
             </div>
             <div className="team-size">
               <div className="indicator">4</div>
