@@ -6,7 +6,6 @@ import { faSort, faSortUp, faSortDown, faBars, faTableCells, } from "@fortawesom
 import StatusDropdown from "../components/homePage-components/StatusDropdown";
 import PriorityDropdown from "../components/homePage-components/PriorityDropdown";
 import ActionDropdown from "../components/homePage-components/ActionDropdown";
-import Header from '../components/Header';
 
 
 const Dashboard = () => {
