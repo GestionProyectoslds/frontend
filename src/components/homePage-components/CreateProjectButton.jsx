@@ -6,7 +6,6 @@ import axios from "axios";
 const CreateProjectButton = () => {
     const [showForm, setShowForm] = useState(false);
     const [error, setError] = useState("");
-
     const openForm = (event) => {
         event.preventDefault();
         setShowForm(true);

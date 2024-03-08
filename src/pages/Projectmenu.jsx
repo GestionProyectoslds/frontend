@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Header from '../components/Header';
+import SearchButton from '../components/sidebarProyects-components/SearchButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort, faSortUp, faSortDown, faBars, faTableCells, } from "@fortawesome/free-solid-svg-icons";
 import StatusDropdown from "../components/homePage-components/StatusDropdown";

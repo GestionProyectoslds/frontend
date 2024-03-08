@@ -29,11 +29,9 @@ const ProjectPage = () => {
   return (
     <div>
       <Header/>
-      
       <SearchButton/>
-      <br/><br/>
       
-      <div className="container-wrapper">
+      <div className="container-wrapper py-10">
         {/* contenedor 1*/}
         <div className="container">
           <h2 className="title">Office management</h2>
