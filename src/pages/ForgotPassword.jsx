@@ -112,7 +112,8 @@ const ForgotPassword = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
+      <div className="mx-auto bg-white p-8 rounded-lg shadow-md sm:p-8 sm:max-w-md md:max-w-2xl w-full">
+
         <a href="/HomePage">
           <img id="logo" src="/src/images/logoCLA.png" alt="Community Lab Alliance Logo" />
         </a>

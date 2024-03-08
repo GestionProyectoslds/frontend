@@ -31,29 +31,29 @@ const ProjectPage = () => {
 
   return (
     <div>
-      <Header/>
-      <SearchButton/>
-      
+      <Header />
+      <SearchButton />
+
       <div className="container-wrapper py-10">
         {/* contenedor 1*/}
         <div className="container">
           <h2 className="title">Office management</h2>
           <p className="text">1 open tasks, 9 tasks completed</p>
           <p className="text">Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <br/><br/>
+          <br /><br />
           <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
+          <br /><br />
           <p className="text">17 Apr 2023</p>
-          <br/>
+          <br />
           <h2 className="title">Project Leader:</h2>
-          <br/>
+          <br />
           <div className="avatar">
             <img src={Image} alt="Foto del líder del proyecto" />
           </div>
-          <br/>
+          <br />
           <p className="title">Team</p>
-          <br/>
-  
+          <br />
+
           <div className="team-photos">
             <div className="avatar">
               <img src={Image1} alt="Foto del miembro del equipo" />
@@ -71,7 +71,7 @@ const ProjectPage = () => {
               <div className="indicator">4</div>
             </div>
           </div>
-  
+
           <br />
           <div className="progress-container">
             <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
@@ -86,21 +86,21 @@ const ProjectPage = () => {
         <div className="container">
           <h2 className="title">Proyect Management</h2>
           <p className="text">2  open tasks, 5 tasks completed</p>
-          <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry. When an unknown printer 
-                              took a galley of type and scrambled it...</p>
+          <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry. When an unknown printer
+            took a galley of type and scrambled it...</p>
           <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
+          <br /><br />
           <p className="text">17 Apr 2023</p>
-          <br/>
+          <br />
           <h2 className="title">Project Leader:</h2>
-          <br/>
+          <br />
           <div className="avatar">
             <img src={Image} alt="Foto del líder del proyecto" />
           </div>
-          <br/>
+          <br />
           <p className="title">Team</p>
-          <br/>
-  
+          <br />
+
           <div className="team-photos">
             <div className="avatar">
               <img src={Image1} alt="Foto del miembro del equipo" />
@@ -118,7 +118,7 @@ const ProjectPage = () => {
               <div className="indicator">4</div>
             </div>
           </div>
-  
+
           <br />
           <div className="progress-container">
             <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
@@ -135,20 +135,20 @@ const ProjectPage = () => {
           <h2 className="title">Video Calling App</h2>
           <p className="text">3  open tasks, 3 tasks completed</p>
           <p className="text">Lorem ipsum is simply dummy text of the printing and typesetting insdustry. When an unknown printer. </p>
-          <br/>
+          <br />
           <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
+          <br /><br />
           <p className="text">17 Apr 2023</p>
-          <br/>
+          <br />
           <h2 className="title">Project Leader:</h2>
-          <br/>
+          <br />
           <div className="avatar">
             <img src={Image} alt="Foto del líder del proyecto" />
           </div>
-          <br/>
+          <br />
           <p className="title">Team</p>
-          <br/>
-  
+          <br />
+
           <div className="team-photos">
             <div className="avatar">
               <img src={Image1} alt="Foto del miembro del equipo" />
@@ -166,7 +166,7 @@ const ProjectPage = () => {
               <div className="indicator">4</div>
             </div>
           </div>
-  
+
           <br />
           <div className="progress-container">
             <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
@@ -182,20 +182,20 @@ const ProjectPage = () => {
           <h2 className="title">Hospital Administration</h2>
           <p className="text">3  open tasks, 3 tasks completed</p>
           <p className="text">Lorem ipsum is simply dummy text of the printing and typesetting insdustry. When an unknown printer.</p>
-          <br/>
+          <br />
           <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
+          <br /><br />
           <p className="text">17 Apr 2023</p>
-          <br/>
+          <br />
           <h2 className="title">Project Leader:</h2>
-          <br/>
+          <br />
           <div className="avatar">
             <img src={Image} alt="Foto del líder del proyecto" />
           </div>
-          <br/>
+          <br />
           <p className="title">Team</p>
-          <br/>
-  
+          <br />
+
           <div className="team-photos">
             <div className="avatar">
               <img src={Image1} alt="Foto del miembro del equipo" />
@@ -213,7 +213,7 @@ const ProjectPage = () => {
               <div className="indicator">4</div>
             </div>
           </div>
-  
+
           <br />
           <div className="progress-container">
             <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
@@ -224,7 +224,7 @@ const ProjectPage = () => {
           </div>
         </div>
 
-        
+
       </div>
     </div>
   );
