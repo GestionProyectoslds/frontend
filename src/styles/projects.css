@@ -1,0 +1,40 @@
+.input-field,
+.select-field,
+.search-button {
+  display: inline-block;
+  vertical-align: top;
+  margin-right:30px; /* Ajusta el margen derecho */
+}
+
+.input-field,
+.select-field {
+  width: 380px;
+  height: 70px;
+  border: 2px solid pink;
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  padding-left: 10px;
+}
+
+.search-button {
+  background-color: green;
+  color: white;
+  width: 380px;
+  height: 70px;
+  border: none;
+  border-radius: 15px;
+  padding: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.form-container {
+  margin-left: 280px; /* Ajusta el margen izquierdo para mover todo el formulario hacia la derecha */
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 45%; /* Utiliza el 45% del ancho del contenedor padre en pantallas medianas y grandes */
+  }
+}

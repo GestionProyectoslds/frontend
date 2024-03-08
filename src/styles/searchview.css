@@ -1,0 +1,118 @@
+.container-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los contenedores se envuelvan cuando no haya suficiente espacio */
+  justify-content: center; /* Centra los contenedores horizontalmente */
+  margin-left: 10px; /* Ajuste el margen izquierdo para dar espacio */
+}
+
+.container {
+  background-color: rgb(213, 228, 228);
+  width: 90%; /* Utiliza el 90% del ancho del contenedor padre */
+  max-width: 375px; /* Establece un ancho máximo para asegurar que no se extienda demasiado en pantallas grandes */
+  padding: 20px;
+  margin: 10px; /* Añade margen alrededor de cada contenedor */
+  overflow: hidden;
+}
+
+.title {
+  color: black;
+  font-size: 1.5rem; /* Tamaño de fuente relativo */
+  margin-bottom: 10px;
+}
+
+.text {
+  color: gray;
+  font-size: 1rem; /* Tamaño de fuente relativo */
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: black;
+  font-size: 1.2rem; /* Tamaño de fuente relativo */
+  margin-bottom: -15px; /* Ajuste para la alineación vertical */
+}
+
+.avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-photos {
+  display: flex;
+  flex-direction: row;
+}
+
+.team-photos .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: -10px; /* Ajuste para evitar superposiciones */
+}
+
+.team-size {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.indicator {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 1rem; /* Tamaño de fuente relativo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -10px; /* Ajuste para evitar superposiciones */
+}
+
+.progress-container {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 10px; /* Aumenta la altura de la barra de progreso para una mejor visibilidad */
+  background-color: lightgray;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: green;
+  border-radius: 5px;
+}
+
+.progress-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.percentage {
+  font-size: 1.2rem; /* Tamaño de fuente relativo */
+  cursor: pointer;
+  margin-left: 70px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 45%; /* Utiliza el 45% del ancho del contenedor padre en pantallas medianas y grandes */
+  }
+}

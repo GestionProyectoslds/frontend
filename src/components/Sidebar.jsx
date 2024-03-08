@@ -10,7 +10,8 @@ function Sidebar() {
   return (
     
     <div className="text-gray-100 text-xl bg-white">
-      <button
+      <button 
+      type ="button"
         className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer text-white bg-gray-100"
         onClick={() => setIsOpen(!isOpen)}
       >

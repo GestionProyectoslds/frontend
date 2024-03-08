@@ -20,6 +20,7 @@ import TaskBoardPage from "./pages/TaskBoardPage";
 import PreDiagnosisPage from "./pages/PreDiagnosisPage";
 import BillingPage from "./pages/BillingPage";
 import ReportsPage from "./pages/ReportsPage";
+import Projectmenu from "./pages/Projectmenu";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/PreDiagnosisPage" element={<PreDiagnosisPage />}  />
           <Route path="/BillingPage" element={<BillingPage />}  />
           <Route path="/ReportsPage" element={<ReportsPage />}  />
+          <Route path="/Projectmenu" element={<Projectmenu />}  />
           {/* ... Otras rutas ... */}
         </Routes>
       </Router>
