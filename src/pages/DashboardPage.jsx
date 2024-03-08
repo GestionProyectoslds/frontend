@@ -3,7 +3,6 @@ import axios from 'axios';
 import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCubes, faDollarSign, faGem, faUser, faCircleDot } from '@fortawesome/free-solid-svg-icons';
-import Array from '../components/Array';
 
 const DashboardPage = () => {
     const [data, setData] = useState(null);
@@ -96,32 +95,31 @@ const DashboardPage = () => {
                                 </div>
                             </div>
                         </form>
-                        <Array activitiesCountByStatus={data.activitiesCountByStatus}/>
                 <div className='bg-white border rounded-md p-4'>                    
                     <form className='flex justify-between  mt-5'>
                     <FontAwesomeIcon icon={faCircleDot} color='Purple'/>
                         <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas Completadas</h2>
-                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 166</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 16</h2>
                     </form>
                     <form className='flex justify-between  mt-5'>
                     <FontAwesomeIcon icon={faCircleDot} color='Pink'/>
                         <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas en Curso</h2>
-                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 115</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 11</h2>
                     </form>
                     <form className='flex justify-between  mt-5'>
                     <FontAwesomeIcon icon={faCircleDot} color='Green'/>
                         <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas en Espera</h2>
-                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 31</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 10</h2>
                     </form>
                     <form className='flex justify-between  mt-5'>
                     <FontAwesomeIcon icon={faCircleDot} color='Red'/>
                         <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas Pendientes</h2>
-                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 47</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 5</h2>
                     </form>
                     <form className='flex justify-between  mt-5'>
                     <FontAwesomeIcon icon={faCircleDot} color='Blue'/>
                         <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas a Revisar</h2>
-                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 5</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 3</h2>
                     </form>                    
                 </div>
             </div>

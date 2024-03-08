@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ActivitiesCountList = ({ activitiesCountByStatus }) => (
+const activitiesCountByStatus = ({ activitiesCountByStatus }) => (
   <ul>
     {activitiesCountByStatus.map((item, index) => (
       <li key={index}>
@@ -10,4 +10,4 @@ const ActivitiesCountList = ({ activitiesCountByStatus }) => (
   </ul>
 );
 
-export default ActivitiesCountList;
+export default activitiesCountByStatus;
