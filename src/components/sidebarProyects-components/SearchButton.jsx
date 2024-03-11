@@ -50,7 +50,7 @@ const ButtonSearch = () => {
         </select>
 
         <button
-        type="button"
+          type="button"
           className="flex-grow bg-green-500 text-white h-10 rounded-md cursor-pointer px-4"
           onClick={() => console.log("SEARCH")}
         >

@@ -21,6 +21,7 @@ import PreDiagnosisPage from "./pages/PreDiagnosisPage";
 import BillingPage from "./pages/BillingPage";
 import ReportsPage from "./pages/ReportsPage";
 import Projectmenu from "./pages/Projectmenu";
+import CreateProjectPage from "./pages/CreateProjectPage";
 
 const App = () => {
   return (
@@ -35,17 +36,18 @@ const App = () => {
           <Route path="/AboutPage" element={<AboutPage />} />
           <Route path="/BlogPage" element={<BlogPage />} />
           <Route path="/DashboardPage" element={<DashboardPage />} />
-          <Route path="/ForgotPassword" element={<ForgotPassword />}  />
-          <Route path="/AppsPage" element={<AppsPage />}  />
-          <Route path="/ExpertPage" element={<ExpertPage />}  />
-          <Route path="/CustomerPage" element={<CustomerPage />}  />
-          <Route path="/ProjectsPage" element={<ProjectsPage />}  />
-          <Route path="/TaskPage" element={<TaskPage />}  />
-          <Route path="/TaskBoardPage" element={<TaskBoardPage />}  />
-          <Route path="/PreDiagnosisPage" element={<PreDiagnosisPage />}  />
-          <Route path="/BillingPage" element={<BillingPage />}  />
-          <Route path="/ReportsPage" element={<ReportsPage />}  />
-          <Route path="/Projectmenu" element={<Projectmenu />}  />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/AppsPage" element={<AppsPage />} />
+          <Route path="/ExpertPage" element={<ExpertPage />} />
+          <Route path="/CustomerPage" element={<CustomerPage />} />
+          <Route path="/ProjectsPage" element={<ProjectsPage />} />
+          <Route path="/TaskPage" element={<TaskPage />} />
+          <Route path="/TaskBoardPage" element={<TaskBoardPage />} />
+          <Route path="/PreDiagnosisPage" element={<PreDiagnosisPage />} />
+          <Route path="/BillingPage" element={<BillingPage />} />
+          <Route path="/ReportsPage" element={<ReportsPage />} />
+          <Route path="/Projectmenu" element={<Projectmenu />} />
+          <Route path="/CreateProjectPage" element={<CreateProjectPage />} />
           {/* ... Otras rutas ... */}
         </Routes>
       </Router>
