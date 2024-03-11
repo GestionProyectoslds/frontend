@@ -98,7 +98,7 @@ const DashboardPage = () => {
                     <form action="">
                       <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Atrasadas</h2>
                     </form>
-                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">19</h2>
+                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">{data.overdueActivitiesCount}</h2>
                   </div>
                 </div>
               </form>
