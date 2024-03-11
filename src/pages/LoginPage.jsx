@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
+
+  const [serverResponse, setServerResponse] = useState("");
 
   const logInSubmit = async (event) => {
     event.preventDefault();
@@ -20,18 +23,30 @@ const LoginPage = () => {
         }
       );
       if (response.status === 200) {
+        const token = response.data.token;
+
+        // Guarda el token en una cookie con una duración (en segundos)
+        const expirationDate = new Date(new Date().getTime() + 12 * 60 * 60 * 1000); //Duración de 12 horas
+        //const expirationDate = new Date(new Date().getTime() + 30 * 1000); // 30 segundos
+        Cookies.set('token', token, { expires: expirationDate });
+
+        // Actualiza el estado con el mensaje de la respuesta del servidor
+        setServerResponse(`Token establecido correctamente: ${token}`);
         navigate("/DashboardPage");
       } else {
+        // Manejar otros casos si es necesario
+        setServerResponse(`Error en la respuesta del servidor: ${response.status}`);
       }
     } catch (error) {
       setError(error.message);
+      setServerResponse(`Error en la solicitud: ${error.message}`);
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md max-w-md w-full">
-        <a href="/HomePage">
+        <a href="/">
           <img
             id="logo"
             src="/src/images/logoCLA.png"
@@ -106,8 +121,11 @@ const LoginPage = () => {
             </div>
           </div>
         </form>
+        {/* Mostrar respuesta del servidor */}
+        {error && (
+          <p className="text-red-500 text-sm mt-2 flex justify-center">{error}</p>
+        )}
       </div>
-      {error && <p>{error}</p>}
     </div>
   );
 };

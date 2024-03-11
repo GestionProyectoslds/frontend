@@ -32,3 +32,9 @@
 .form-container {
   margin-left: 280px; /* Ajusta el margen izquierdo para mover todo el formulario hacia la derecha */
 }
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 45%; /* Utiliza el 45% del ancho del contenedor padre en pantallas medianas y grandes */
+  }
+}
