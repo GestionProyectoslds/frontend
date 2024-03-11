@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import Header from '../components/Header';
 import SearchButton from '../components/sidebarProyects-components/SearchButton';
 import Image from "../images/imgavatarProyec/jefe.jpg";
-import Image1 from "../images/imgavatarProyec/chems.jpg";
-import Image2 from "../images/imgavatarProyec/hams1.jpg";
-import Image3 from "../images/imgavatarProyec/pedillos.jpg";
-import Image4 from "../images/imgavatarProyec/pensando.jpg";
 import "../styles/searchview.css";
+import CreateProjectButton from "../components/homePage-components/CreateProjectButton";
 
 const ProjectPage = () => {
   const [progress, setProgress] = useState(0);
@@ -31,201 +28,212 @@ const ProjectPage = () => {
 
   return (
     <div>
-      <Header/>
-      <SearchButton/>
-      
-      <div className="container-wrapper py-10">
-        {/* contenedor 1*/}
-        <div className="container">
-          <h2 className="title">Office management</h2>
-          <p className="text">1 open tasks, 9 tasks completed</p>
-          <p className="text">Lorem ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <br/><br/>
-          <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
-          <p className="text">17 Apr 2023</p>
-          <br/>
-          <h2 className="title">Project Leader:</h2>
-          <br/>
-          <div className="avatar">
-            <img src={Image} alt="Foto del líder del proyecto" />
-          </div>
-          <br/>
-          <p className="title">Team</p>
-          <br/>
-  
-          <div className="team-photos">
-            <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="team-size">
-              <div className="indicator">4</div>
-            </div>
-          </div>
-  
-          <br />
-          <div className="progress-container">
-            <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
-            <div className="progress-bar" onMouseDown={handleMouseDown}>
-              <div className="progress" style={{ width: `${progress}%` }}></div>
-              <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
-            </div>
-          </div>
+      <Header />
+      <form className="ml-20 mr-20">
+        <div className="mt-5">
+          <label className='text-2xl font-bold mt-10'>Project</label>
         </div>
 
-        {/* contenedor 2*/}
-        <div className="container">
-          <h2 className="title">Proyect Management</h2>
-          <p className="text">2  open tasks, 5 tasks completed</p>
-          <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry. When an unknown printer 
-                              took a galley of type and scrambled it...</p>
-          <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
-          <p className="text">17 Apr 2023</p>
-          <br/>
-          <h2 className="title">Project Leader:</h2>
-          <br/>
-          <div className="avatar">
-            <img src={Image} alt="Foto del líder del proyecto" />
-          </div>
-          <br/>
-          <p className="title">Team</p>
-          <br/>
-  
-          <div className="team-photos">
-            <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="team-size">
-              <div className="indicator">4</div>
-            </div>
-          </div>
-  
-          <br />
-          <div className="progress-container">
-            <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
-            <div className="progress-bar" onMouseDown={handleMouseDown}>
-              <div className="progress" style={{ width: `${progress}%` }}></div>
-              <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
-            </div>
-          </div>
+        <div className="flex items-center mt-2 -mr-16">
+          <label className="text-base font-bold">Dashboard</label>
+          <div className="flex-grow" />
+          <CreateProjectButton />
         </div>
-
-
-        {/* contenedor 3*/}
-        <div className="container">
-          <h2 className="title">Video Calling App</h2>
-          <p className="text">3  open tasks, 3 tasks completed</p>
-          <p className="text">Lorem ipsum is simply dummy text of the printing and typesetting insdustry. When an unknown printer. </p>
-          <br/>
-          <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
-          <p className="text">17 Apr 2023</p>
-          <br/>
-          <h2 className="title">Project Leader:</h2>
-          <br/>
-          <div className="avatar">
-            <img src={Image} alt="Foto del líder del proyecto" />
-          </div>
-          <br/>
-          <p className="title">Team</p>
-          <br/>
-  
-          <div className="team-photos">
-            <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="team-size">
-              <div className="indicator">4</div>
-            </div>
-          </div>
-  
-          <br />
-          <div className="progress-container">
-            <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
-            <div className="progress-bar" onMouseDown={handleMouseDown}>
-              <div className="progress" style={{ width: `${progress}%` }}></div>
-              <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
-            </div>
-          </div>
-        </div>
-
-        {/* contenedor 4*/}
-        <div className="container">
-          <h2 className="title">Hospital Administration</h2>
-          <p className="text">3  open tasks, 3 tasks completed</p>
-          <p className="text">Lorem ipsum is simply dummy text of the printing and typesetting insdustry. When an unknown printer.</p>
-          <br/>
-          <h3 className="subtitle">Deadline:</h3>
-          <br/><br/>
-          <p className="text">17 Apr 2023</p>
-          <br/>
-          <h2 className="title">Project Leader:</h2>
-          <br/>
-          <div className="avatar">
-            <img src={Image} alt="Foto del líder del proyecto" />
-          </div>
-          <br/>
-          <p className="title">Team</p>
-          <br/>
-  
-          <div className="team-photos">
-            <div className="avatar">
-              <img src={Image1} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image2} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image3} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="avatar">
-              <img src={Image4} alt="Foto del miembro del equipo" />
-            </div>
-            <div className="team-size">
-              <div className="indicator">4</div>
-            </div>
-          </div>
-  
-          <br />
-          <div className="progress-container">
-            <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
-            <div className="progress-bar" onMouseDown={handleMouseDown}>
-              <div className="progress" style={{ width: `${progress}%` }}></div>
-              <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
-            </div>
-          </div>
+        <div className="mt-4 mb-4"> {/* Agregado el margen superior aquí */}
+          <SearchButton />
         </div>
 
         
-      </div>
+        {/* codigo de eduardo -------------------------------------*/}
+        <div className="container-wrapper ">
+          {/* contenedor 1*/}
+          <div className="container">
+             <h2 className="title">Office Management</h2>
+            <p className="text">2  open tasks, 5 tasks completed</p>
+            <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry.</p>
+            <h3 className="subtitle">Deadline:</h3>
+            <br /><br />
+            <p className="text">17 Apr 2023</p>
+            <br />
+            <h2 className="title">Project Leader:</h2>
+            <br />
+            <div className="avatar">
+              <img src={Image} alt="Foto del líder del proyecto" />
+            </div>
+            <br />
+            <p className="title">Team</p>
+            <br />
+
+            <div className="team-photos">
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="team-size">
+                <div className="indicator">4</div>
+              </div>
+            </div>
+
+            <br />
+            <div className="progress-container">
+              <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
+              <div className="progress-bar" onMouseDown={handleMouseDown}>
+                <div className="progress" style={{ width: `${progress}%` }}></div>
+                <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
+              </div>
+            </div>
+          </div>
+
+          {/* contenedor 2*/}
+          <div className="container">
+            <h2 className="title">Proyect Management</h2>
+            <p className="text">2  open tasks, 5 tasks completed</p>
+            <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry.</p>
+            <h3 className="subtitle">Deadline:</h3>
+            <br /><br />
+            <p className="text">17 Apr 2023</p>
+            <br />
+            <h2 className="title">Project Leader:</h2>
+            <br />
+            <div className="avatar">
+              <img src={Image} alt="Foto del líder del proyecto" />
+            </div>
+            <br />
+            <p className="title">Team</p>
+            <br />
+
+            <div className="team-photos">
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="team-size">
+                <div className="indicator">4</div>
+              </div>
+            </div>
+
+            <br />
+            <div className="progress-container">
+              <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
+              <div className="progress-bar" onMouseDown={handleMouseDown}>
+                <div className="progress" style={{ width: `${progress}%` }}></div>
+                <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
+              </div>
+            </div>
+          </div>
+
+
+          {/* contenedor 3*/}
+          <div className="container">
+          <h2 className="title">Video Calling App</h2>
+            <p className="text">2  open tasks, 5 tasks completed</p>
+            <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry.</p>
+            <h3 className="subtitle">Deadline:</h3>
+            <br /><br />
+            <p className="text">17 Apr 2023</p>
+            <br />
+            <h2 className="title">Project Leader:</h2>
+            <br />
+            <div className="avatar">
+              <img src={Image} alt="Foto del líder del proyecto" />
+            </div>
+            <br />
+            <p className="title">Team</p>
+            <br />
+
+            <div className="team-photos">
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="team-size">
+                <div className="indicator">4</div>
+              </div>
+            </div>
+
+            <br />
+            <div className="progress-container">
+              <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
+              <div className="progress-bar" onMouseDown={handleMouseDown}>
+                <div className="progress" style={{ width: `${progress}%` }}></div>
+                <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
+              </div>
+            </div>
+          </div>
+
+          {/* contenedor 4*/}
+          <div className="container">
+          <h2 className="title">Hospital Administration</h2>
+            <p className="text">2  open tasks, 5 tasks completed</p>
+            <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry.</p>
+            <h3 className="subtitle">Deadline:</h3>
+            <br /><br />
+            <p className="text">17 Apr 2023</p>
+            <br />
+            <h2 className="title">Project Leader:</h2>
+            <br />
+            <div className="avatar">
+              <img src={Image} alt="Foto del líder del proyecto" />
+            </div>
+            <br />
+            <p className="title">Team</p>
+            <br />
+
+            <div className="team-photos">
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="avatar">
+                <img src={Image} alt="Foto del miembro del equipo" />
+              </div>
+              <div className="team-size">
+                <div className="indicator">4</div>
+              </div>
+            </div>
+
+            <br />
+            <div className="progress-container">
+              <p className="title">Progress <span className="percentage" style={{ color: 'green' }}>{progress}%</span></p>
+              <div className="progress-bar" onMouseDown={handleMouseDown}>
+                <div className="progress" style={{ width: `${progress}%` }}></div>
+                <div className="progress-indicator" style={{ left: `${progress}%` }}></div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </form>
     </div>
   );
 };

@@ -58,7 +58,8 @@ const SignUp = () => {
             city,
             state,
             country,
-            userType,
+            userTypeId,
+            termsAccepted:checked
           }
         );
         if (response.status === 200) {

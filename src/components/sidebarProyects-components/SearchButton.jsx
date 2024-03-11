@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTableCells } from "@fortawesome/free-solid-svg-icons";
-import "../../styles/projects.css";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import CreateProjectPage from "../../pages/CreateProjectPage";
 import ProjectsPage from "../../pages/ProjectsPage";
+=======
+>>>>>>> cabf186249b10977371499eb5c2085ae84475636
 
 const ButtonSearch = () => {
-  // Estado para almacenar el valor del Client ID ingresado por el usuario
   const [clientId, setClientId] = useState("");
-  // Estado para almacenar el valor del nombre del empleado ingresado por el usuario
   const [employeeName, setExpertName] = useState("");
-  // Estado para almacenar la designación seleccionada por el usuario
   const [designation, setDesignation] = useState("");
+  const navigate = useNavigate();
 
+<<<<<<< HEAD
   const [error, setError] = useState("");
   const Navigate = useNavigate();
   const Projectmenu = () => {
@@ -44,21 +43,39 @@ const ButtonSearch = () => {
         </div>
         <h2 className="ml-23">Dashboard</h2> <br />
         {/* Casilla de Client ID */}
+=======
+  const Projectmenu = () => {
+    try {
+      navigate("/Projectmenu");
+    } catch (error) {
+      console.error("Something is wrong", error);
+    }
+  };
+
+  return (
+    <div className="form-container">
+      <div className="flex items-stretch space-x-4">
+>>>>>>> cabf186249b10977371499eb5c2085ae84475636
         <input
           type="text"
-          placeholder="Client ID" // Texto de ejemplo que aparecerá antes de que el usuario escriba
-          value={clientId} // Valor del Client ID
-          onChange={(e) => setClientId(e.target.value)} // Actualiza el estado cuando el usuario escribe
-          className="input-field"
+          placeholder="Client ID"
+          value={clientId}
+          onChange={(e) => setClientId(e.target.value)}
+          className="flex-grow input-field border border-gray-300 rounded-md px-2 py-1"
         />
+<<<<<<< HEAD
         {/* Casilla de Employee Name */}
+=======
+
+>>>>>>> cabf186249b10977371499eb5c2085ae84475636
         <input
           type="text"
-          placeholder="Expert Name" // Texto de ejemplo que aparecerá antes de que el usuario escriba
-          value={employeeName} // Valor del Employee Name
-          onChange={(e) => setExpertName(e.target.value)} // Actualiza el estado cuando el usuario escribe
-          className="input-field"
+          placeholder="Expert Name"
+          value={employeeName}
+          onChange={(e) => setExpertName(e.target.value)}
+          className="flex-grow input-field border border-gray-300 rounded-md px-2 py-1"
         />
+<<<<<<< HEAD
         {/* Casilla Texto de la Compañía */}
         <div className="input-field">
           <span style={{ color: "grey" }}>Category</span>
@@ -72,15 +89,37 @@ const ButtonSearch = () => {
           >
             <option value="" disabled>
               Seleccione Designation
+=======
+
+        <select
+          value={designation}
+          onChange={(e) => setDesignation(e.target.value)}
+          className="flex-grow px-2 py-1 border border-gray-300 rounded-md"
+        >
+          <optgroup label="Category">
+            <option value="" disabled>
+              Select Designation
+>>>>>>> cabf186249b10977371499eb5c2085ae84475636
             </option>
             <option value="Manager">Manager</option>
             <option value="Supervisor">Supervisor</option>
             <option value="Employee">Employee</option>
+<<<<<<< HEAD
           </select>
         </div>
         <div className="search-button" onClick={() => console.log("SEARCH")}>
+=======
+          </optgroup>
+        </select>
+
+        <button
+        type="button"
+          className="flex-grow bg-green-500 text-white h-10 rounded-md cursor-pointer px-4"
+          onClick={() => console.log("SEARCH")}
+        >
+>>>>>>> cabf186249b10977371499eb5c2085ae84475636
           Search
-        </div>
+        </button>
       </div>
       {error && <p>{error}</p>}
     </div>
