@@ -6,6 +6,7 @@ import { faSort, faSortUp, faSortDown, faBars, faTableCells, } from "@fortawesom
 import StatusDropdown from "../components/homePage-components/StatusDropdown";
 import PriorityDropdown from "../components/homePage-components/PriorityDropdown";
 import ActionDropdown from "../components/homePage-components/ActionDropdown";
+import CreateProjectButton from "../components/homePage-components/CreateProjectButton";
 
 
 const Dashboard = () => {
@@ -98,25 +99,23 @@ const Dashboard = () => {
   };
 
   return (
-
-    
-    <form>
-        <Header/>
-      
-      <div className="flex justify-end px-10 pb-5 h-14 mt-10">
-        <button className="bg-white border border-[#E3E3E3] mx-1 rounded-lg w-auto flex justify-center items-center">
-          <FontAwesomeIcon icon={faTableCells} className="" />
-        </button>
-
-        <button className="bg-white border border-[#E3E3E3] mx-1 rounded-lg w-auto flex justify-center items-center">
-          <FontAwesomeIcon icon={faBars} className="" />
-        </button>
-        <button className="bg-[#FF9B44] border-transparent text-white mx-1 rounded-full w-auto flex justify-center items-center">
-          Create Project
-        </button>
+    <div>
+    <Header />
+    <form className="ml-20 mr-20">
+      <div className="mt-5">
+        <label className='text-2xl font-bold mt-10'>Project</label>
       </div>
 
-      <div className=" overflow-auto w-3/4 mx-auto border-gray-500 rounded-xl">
+      <div className="flex items-center mt-2 -mr-16">
+        <label className="text-base font-bold">Dashboard</label>
+        <div className="flex-grow" />
+        <CreateProjectButton />
+      </div>
+      <div className="mt-4 mb-4"> {/* Agregado el margen superior aquí */}
+        <SearchButton />
+      </div>
+
+      <div className=" overflow-auto w-auto mx-auto border-gray-500 rounded-xl">
         <table className="table-auto w-full text-left ">
           <thead>
             <tr className="">
@@ -316,6 +315,7 @@ const Dashboard = () => {
         </table>
       </div>
     </form>
+    </div>
   );
 };
 

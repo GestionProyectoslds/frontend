@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faTableCells, faBars } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const CreateProjectButton = () => {
     const [showForm, setShowForm] = useState(false);
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const openForm = (event) => {
         event.preventDefault();
@@ -25,32 +27,32 @@ const CreateProjectButton = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-                 const response = await axios.post(
-                     "http://localhost:5153/api",
-                     {
-                         projectName,
-                         startDate,
-                         categories,
-                         subcategories,
-                         rate,
-                         number,
-                         options,
-                         projectLeader,
-                         client,
-                         endDate,
-                         priority,
-                         description,
-                         files,
-                     }
-                 );
-                 if (response.status === 200) {
-                     console.log(response.data);
-                     navigate("/ProjectsPage");
-                     setShowForm(false); // Ocultar formulario
-                 };
-             } catch (error) {
-                 setError("Invalid Request")
-             }
+            const response = await axios.post(
+                "http://localhost:5153/api",
+                {
+                    projectName,
+                    startDate,
+                    categories,
+                    subcategories,
+                    rate,
+                    number,
+                    options,
+                    projectLeader,
+                    client,
+                    endDate,
+                    priority,
+                    description,
+                    files,
+                }
+            );
+            if (response.status === 200) {
+                console.log(response.data);
+                navigate("/ProjectsPage");
+                setShowForm(false); // Ocultar formulario
+            };
+        } catch (error) {
+            setError("Invalid Request")
+        }
         setShowForm(false); // Ocultar formulario
 
         const handleFileChange = (event) => {
@@ -60,14 +62,32 @@ const CreateProjectButton = () => {
         };
     };
     return (
-        <div>
-            <button
-                className="bg-[#FF9B44] border-transparent text-white mx-1 rounded-full flex justify-center items-center"
-                onClick={openForm}
-            >
-                Create Project
-            </button>
 
+        <div>
+            <div className="flex justify-end px-4 md:px-16 pb-1 h-15 ml-20">
+                <button
+                    type="button"
+                    onClick={() => navigate("/ProjectsPage")}
+                    className="bg-white border border-[#E3E3E3] mx-1 rounded-lg w-auto flex justify-center items-center"
+                >
+                    <FontAwesomeIcon icon={faTableCells} className="" />
+                </button>
+                <button
+                    type="button"
+                    onClick={() => navigate("/Projectmenu")}
+
+                    className="bg-white border border-[#E3E3E3] mx-1 rounded-lg w-auto flex justify-center items-center"
+                >
+                    <FontAwesomeIcon icon={faBars} className="" />
+                </button>
+
+                <button
+                    className="bg-[#FF9B44] border-transparent text-white mx-1 rounded-full flex justify-center items-center"
+                    onClick={openForm}
+                >
+                    Create Project
+                </button>
+            </div>
             {/* Formulario de creación de proyecto */}
             {showForm && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50">
@@ -264,13 +284,13 @@ const CreateProjectButton = () => {
                                                 className="mt-1 p-2 border rounded-md w-full"
                                             >
                                                 <option value="" disabled selected>Select</option>
-                                                <option className= "  " value="option1">High</option>
+                                                <option className="  " value="option1">High</option>
                                                 <option value="option2">Medium</option>
                                                 <option value="option3">Low</option>
                                             </select>
                                         </div>
 
-                                        
+
 
                                         <div className="mb-4">
                                             <label
@@ -321,7 +341,7 @@ const CreateProjectButton = () => {
                     </div>
                 </div>
             )}
-            
+
             {error && <p>{error}</p>}
         </div>
     );

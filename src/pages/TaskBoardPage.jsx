@@ -58,7 +58,7 @@ const TaskBoardPage = () => {
       <Header />
       <form className="ml-20 mr-20">
         <div className="mt-5">
-          <label className=' mr-20 text-2xl font-bold mt-10'>Project Name</label>
+          <label className=' mr-20 text-2xl font-bold'>Project Name</label>
         </div>
 
         <div className=" mt-2">
@@ -96,7 +96,7 @@ const TaskBoardPage = () => {
           </div>
         </div>
 
-        <div className="flex items-center">
+        <div className="flex items-center mt-4">
           <label className="text-base font-bold mr-2">Progress</label>
           <div className="w-full bg-gray-200 rounded-full dark:bg-[#E3E3E3]">
             <div className="bg-[#55CE63] text-xs font-medium text-white text-center p-0.5 leading-none rounded-full" style={{ width: `${progressPercentage}%` }}>
@@ -106,7 +106,7 @@ const TaskBoardPage = () => {
         </div>
 
         {/* Nueva sección con rectángulos verticales */}
-        <div className="flex mt-5">
+        <div className="flex mt-4">
           {/* Rectángulo Pending */}
           <div className="flex-1 bg-red-500 p-4 rounded-md">
             <div className="flex justify-between items-center mb-4">
