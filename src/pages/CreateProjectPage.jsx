@@ -17,6 +17,7 @@ const CreateProjectPage = () => {
   const [isActive] = useState(true);
   const [projectManagerId, setProjectManagerId] = useState("");
   const [error, setError] = useState("");
+
   const openForm = (event) => {
     event.preventDefault();
     setShowForm(true);
@@ -27,18 +28,22 @@ const CreateProjectPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5153/api", {
-        name,
-        startDate,
-        endDate,
-        description,
-        budget,
-        cost,
-        comments,
-        isActive,
-        projectManagerId,
-      });
+      const response = await axios.post(
+        "http://localhost:5153/api/Projects/create",
+        {
+          name,
+          startDate,
+          endDate,
+          description,
+          budget,
+          cost,
+          comments,
+          isActive,
+          projectManagerId,
+        }
+      );
       if (response.status === 200) {
+        console.log("información enviada");
         Navigate("/ProjectsPage");
         setShowForm(false); // Ocultar formulario
       }
@@ -139,14 +144,14 @@ const CreateProjectPage = () => {
                     <div className="mb-4 flex">
                       <div className="w-1/2 mr-2">
                         <label
-                          htmlFor="rate"
+                          htmlFor="budget"
                           className="block text-sm font-bold text-gray-700"
                         >
                           Budget
                         </label>
                         <input
                           type="number"
-                          id="rate"
+                          id="budget"
                           name={budget}
                           onChange={(event) => setBudget(event.target.value)}
                           className="mt-1 p-2 border rounded-md w-full"
@@ -154,14 +159,14 @@ const CreateProjectPage = () => {
                       </div>
                       <div className="w-1/2 mr-2">
                         <label
-                          htmlFor="rate"
+                          htmlFor="cost"
                           className="block text-sm font-bold text-gray-700"
                         >
                           Cost
                         </label>
                         <input
                           type="number"
-                          id="rate"
+                          id="cost"
                           name={cost}
                           onChange={(event) => setCost(event.target.value)}
                           className="mt-1 p-2 border rounded-md w-full"
@@ -192,7 +197,7 @@ const CreateProjectPage = () => {
                         Add Project Leader
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id="projectLeader"
                         name={projectManagerId}
                         onChange={(event) =>
@@ -201,7 +206,6 @@ const CreateProjectPage = () => {
                         className="mt-1 p-2 border rounded-md w-full"
                       />
                     </div>
-
                     <div className="mb-4">
                       <label
                         htmlFor="team"
@@ -306,13 +310,13 @@ const CreateProjectPage = () => {
                 </div>
                 <div className="mb-4">
                   <label
-                    htmlFor="description"
+                    htmlFor="comments"
                     className="block text-sm font-bold text-gray-700"
                   >
                     Comments
                   </label>
                   <textarea
-                    id="description"
+                    id="comments"
                     name={comments}
                     onChange={(event) => setComments(event.target.value)}
                     rows="4"

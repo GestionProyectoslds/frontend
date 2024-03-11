@@ -5,15 +5,7 @@ const ButtonSearch = () => {
   const [clientId, setClientId] = useState("");
   const [employeeName, setExpertName] = useState("");
   const [designation, setDesignation] = useState("");
-  const navigate = useNavigate();
-
-  const Projectmenu = () => {
-    try {
-      navigate("/Projectmenu");
-    } catch (error) {
-      console.error("Something is wrong", error);
-    }
-  };
+  const [error, setError] = useState("");
 
   return (
     <div className="form-container">
