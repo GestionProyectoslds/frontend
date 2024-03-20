@@ -108,7 +108,27 @@ const DashboardPage = () => {
 
 
         <div className='mx-auto flex flex-row'>
-          <div className='w-full md:w-1/2 p-4'>
+          <div className='w-full p-4'>
+            <div className='bg-white border rounded-md p-4'>
+              <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Estadísticas de Tareas</h2>
+              <form className='flex justify-between'>
+                <div className="w-full md:w-1/2 p-4">
+                  <div className="bg-white border rounded-md shadow-md p-4">
+                    <form action="">
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Totales</h2>
+                    </form>
+                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">{data.activitiesCount}</h2>
+                  </div>
+                </div>
+                <div className="w-full md:w-1/2 p-4">
+                  <div className="bg-white border rounded-md shadow-md p-4">
+                    <form action="">
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Atrasadas</h2>
+                    </form>
+                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">{data.overdueActivitiesCount}</h2>
+                  </div>
+                </div>
+              </form>
               <div className='bg-white border rounded-md p-4'>
                 <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Estadísticas</h2>
                 <div className='bg-white'>
@@ -196,18 +216,19 @@ const DashboardPage = () => {
                     </div>
                   </div>
                 </form>
-                    {/*<div className="progress-container">
+                {/*<div className="progress-container">
                       <div className="progress-bar" onMouseDown={handleMouseDown}>
                         <div className="progress" style={{ width: `${progress}%`}}></div>
                       </div>
                     </div>*/}
                 <div className='bg-white mt-10'>
-                <Array activitiesCountByStatus={data.activitiesCountByStatus} />
+                  <Array activitiesCountByStatus={data.activitiesCountByStatus} />
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
   );
 }
