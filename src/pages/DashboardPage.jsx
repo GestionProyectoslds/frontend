@@ -38,7 +38,7 @@ const DashboardPage = () => {
         return;
       }
       const config = {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `bearer ${token}` }
       };
       try {
         const response = await axios.get('http://localhost:5153/api/Statistics', config);
