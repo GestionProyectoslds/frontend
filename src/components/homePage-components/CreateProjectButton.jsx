@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faTableCells, faBars } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import Quill from "quill";
+import "quill/dist/quill.snow.css";
+import Cookies from "js-cookie";
 
 const CreateProjectButton = () => {
     const [showForm, setShowForm] = useState(false);
     const [error, setError] = useState("");
+    const [description, setDescription] = useState("");
+    const [projectName, setProjectName] = useState("");
+    const [startDate, setStartDate] = useState("");
+    const [endDate, setEndDate] = useState("");
+    const [budget, setBudget] = useState("");
     const navigate = useNavigate();
+    const quillRef = useRef(null); // Referencia para el editor de Quill
 
     const openForm = (event) => {
         event.preventDefault();
@@ -18,71 +27,88 @@ const CreateProjectButton = () => {
         setShowForm(false);
     };
 
-    const handleFileChange = (event) => {
-        const fileList = event.target.files;
-        const fileArray = Array.from(fileList);
-        setFiles(fileArray);
-    };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
+            const token = Cookies.get('token');
+            console.log("Token:", token); // Agrega un console log para verificar el token obtenido
+
+            if (!token) {
+                console.error('Token no encontrado');
+                return;
+            }
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+            const defaultData = {
+                // Valores predeterminados
+                cost: 0,
+                comments: "Comentarios no proporcionados",
+                isActive: true,
+                projectManagerId: 0
+            };
+            const formData = {
+                name: projectName,
+                startDate,
+                endDate,
+                description,
+                budget
+            };
+            const requestData = { ...defaultData, ...formData }; // Combinar valores predeterminados con datos del formulario
+            console.log("Request Data:", requestData); // Agrega un console log para verificar los datos que se enviarán al servidor
+
             const response = await axios.post(
-                "http://localhost:5153/api",
-                {
-                    projectName,
-                    startDate,
-                    categories,
-                    subcategories,
-                    rate,
-                    number,
-                    options,
-                    projectLeader,
-                    client,
-                    endDate,
-                    priority,
-                    description,
-                    files,
-                }
+                "http://localhost:5153/api/Projects/create",
+                requestData,
+                config // Pasar la configuración con el token
             );
+            console.log("Response:", response.data); // Agrega un console log para verificar la respuesta del servidor
+
             if (response.status === 200) {
                 console.log(response.data);
                 navigate("/ProjectsPage");
-                setShowForm(false); // Ocultar formulario
-            };
+                setShowForm(false);
+            }
         } catch (error) {
             setError("Invalid Request")
         }
-        setShowForm(false); // Ocultar formulario
-
-        const handleFileChange = (event) => {
-            const fileList = event.target.files;
-            const fileArray = Array.from(fileList);
-            setFiles(fileArray);
-        };
     };
-    return (
 
+
+
+
+    useEffect(() => {
+        if (showForm) {
+            const quill = new Quill(quillRef.current, {
+                theme: "snow",
+                placeholder: "Write something...",
+            });
+            quill.on("text-change", () => {
+                setDescription(quill.root.innerHTML); // Actualiza el estado con el contenido del editor
+            });
+        }
+    }, [showForm]);
+
+    return (
         <div>
-            <div className="flex justify-end px-4 md:px-16 pb-1 h-15 ml-20">
+            <div className="flex justify-end pb-1 h-12">
                 <button
                     type="button"
                     onClick={() => navigate("/ProjectsPage")}
-                    className="bg-white border border-[#E3E3E3] mx-1 rounded-lg w-auto flex justify-center items-center"
+                    className="bg-white border border-[#E3E3E3] rounded-lg w-auto flex justify-center items-center"
                 >
                     <FontAwesomeIcon icon={faTableCells} className="" />
                 </button>
                 <button
                     type="button"
                     onClick={() => navigate("/Projectmenu")}
-
-                    className="bg-white border border-[#E3E3E3] mx-1 rounded-lg w-auto flex justify-center items-center"
+                    className="bg-white border border-[#E3E3E3] ml-2  rounded-lg w-auto flex justify-center items-center"
                 >
                     <FontAwesomeIcon icon={faBars} className="" />
                 </button>
-
                 <button
-                    className="bg-[#FF9B44] border-transparent text-white mx-1 rounded-full flex justify-center items-center"
+                    className="bg-[#FF9B44] border-transparent text-white ml-2 rounded-full flex justify-center items-center"
                     onClick={openForm}
                 >
                     Create Project
@@ -101,13 +127,14 @@ const CreateProjectButton = () => {
                             <h2 className=" text-2xl font-semibold mb-4 text-center">
                                 Create Project
                             </h2>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={(e) => handleSubmit(e)}>
                                 <div className="flex">
                                     <div className="w-1/2 pr-4">
+                                        {/* Columna izquierda */}
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="projectName"
-                                                className="block text-sm font-bold text- text-gray-700"
+                                                className="block text-sm font-bold text-gray-700"
                                             >
                                                 Project Name
                                             </label>
@@ -116,9 +143,10 @@ const CreateProjectButton = () => {
                                                 id="projectName"
                                                 name="projectName"
                                                 className="mt-1 p-2 border rounded-md w-full"
+                                                value={projectName}
+                                                onChange={(e) => setProjectName(e.target.value)}
                                             />
                                         </div>
-
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="startDate"
@@ -131,6 +159,8 @@ const CreateProjectButton = () => {
                                                 id="startDate"
                                                 name="startDate"
                                                 className="mt-1 p-2 border rounded-md w-full"
+                                                value={startDate}
+                                                onChange={(e) => setStartDate(e.target.value)}
                                             />
                                         </div>
 
@@ -144,15 +174,14 @@ const CreateProjectButton = () => {
                                             <select
                                                 id="categories"
                                                 name="categories"
-                                                className="mt-1 p-2 border rounded-md w-full  "
+                                                className="mt-1 p-2 border rounded-md w-full"
                                             >
-                                                <option value="" disabled selected>Select</option>
+                                                <option value="" disabled>Select</option>
                                                 <option value="option1">Option 1</option>
                                                 <option value="option2">Option 2</option>
-                                                <option className="hover:bg-red-500" value="option3">
-                                                    Option 3
-                                                </option>
+                                                <option value="option3">Option 3</option>
                                             </select>
+
                                         </div>
 
                                         <div className="mb-4">
@@ -177,16 +206,18 @@ const CreateProjectButton = () => {
                                         <div className="mb-4 flex">
                                             <div className="w-1/2 mr-2">
                                                 <label
-                                                    htmlFor="rate"
+                                                    htmlFor="budget"
                                                     className="block text-sm font-bold text-gray-700"
                                                 >
-                                                    Rate
+                                                    Budget
                                                 </label>
                                                 <input
                                                     type="number"
-                                                    id="rate"
-                                                    name="rate"
+                                                    id="budget"
+                                                    name="budget"
                                                     className="mt-1 p-2 border rounded-md w-full"
+                                                    value={budget} // Agrega el valor del estado budget al campo
+                                                    onChange={(e) => setBudget(e.target.value)} // Actualiza el estado budget cuando cambia el valor del campo
                                                 />
                                             </div>
                                             <div className="w-1/2">
@@ -206,38 +237,9 @@ const CreateProjectButton = () => {
                                                 </select>
                                             </div>
                                         </div>
-
-                                        <div className="mb-4">
-                                            <label
-                                                htmlFor="projectLeader"
-                                                className="block text-sm font-bold text-gray-700"
-                                            >
-                                                Add Project Leader
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="projectLeader"
-                                                name="projectLeader"
-                                                className="mt-1 p-2 border rounded-md w-full"
-                                            />
-                                        </div>
-
-                                        <div className="mb-4">
-                                            <label
-                                                htmlFor="team"
-                                                className="block text-sm font-bold text-gray-700"
-                                            >
-                                                Add Team
-                                            </label>
-                                            <input
-                                                type="text"
-                                                id="team"
-                                                name="team"
-                                                className="mt-1 p-2 border rounded-md w-full"
-                                            />
-                                        </div>
                                     </div>
                                     <div className="w-1/2 pl-4">
+                                        {/* Columna derecha */}
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="client"
@@ -250,12 +252,11 @@ const CreateProjectButton = () => {
                                                 name="client"
                                                 className="mt-1 p-2 border rounded-md w-full"
                                             >
-                                                <option value="" disabled selected>Select</option>
+                                                <option value="" disabled>Select</option>
                                                 <option value="option1">Global Technologies</option>
                                                 <option value="option2">InfoTech View</option>
                                             </select>
                                         </div>
-
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="endDate"
@@ -268,6 +269,8 @@ const CreateProjectButton = () => {
                                                 id="endDate"
                                                 name="endDate"
                                                 className="mt-1 p-2 border rounded-md w-full"
+                                                value={endDate}
+                                                onChange={(e) => setEndDate(e.target.value)}
                                             />
                                         </div>
 
@@ -283,54 +286,32 @@ const CreateProjectButton = () => {
                                                 name="priority"
                                                 className="mt-1 p-2 border rounded-md w-full"
                                             >
-                                                <option value="" disabled selected>Select</option>
-                                                <option className="  " value="option1">High</option>
+                                                <option value="" disabled>Select</option>
+                                                <option value="option1">High</option>
                                                 <option value="option2">Medium</option>
                                                 <option value="option3">Low</option>
                                             </select>
+
                                         </div>
 
-
-
-                                        <div className="mb-4">
-                                            <label
-                                                htmlFor="description"
-                                                className="block text-sm font-bold text-gray-700"
-                                            >
-                                                Description
-                                            </label>
-                                            <textarea
-                                                id="description"
-                                                name="description"
-                                                rows="4"
-                                                className="mt-1 p-2 border rounded-md w-full"
-                                            ></textarea>
-                                        </div>
-
-                                        {/* Sección para subir archivos */}
-                                        <div className="mb-4">
-                                            <label className="block text-sm font-bold text-gray-700">Upload File</label>
-                                            <label class="block">
-                                                <span class="sr-only">Choose file</span>
-                                                <input
-                                                    type="file"
-                                                    class="block w-full text-sm text-slate-500
-                                                    file:mr-4 file:py-2 file:px-4
-                                                    file:rounded-full file:border-0
-                                                    file:text-sm file:font-semibold
-                                                    file:bg-black-50 file:text-gray-700
-                                                    hover:file:bg-gray-300"
-                                                />
-                                            </label>
-                                        </div>
                                     </div>
                                 </div>
+                                {/* Descripción */}
+                                <div>
+                                    <label
+                                        htmlFor="description"
+                                        className="block text-sm font-bold text-gray-700 mt-2"
+                                    >
+                                        Description
+                                    </label>
+                                    <div ref={quillRef} style={{ height: "200px" }} />
+                                </div>
 
-                                <div className="flex justify-center">
-                                    {" "}
-                                    {/* Este div centra el botón de submit */}
+                                {/* Botón de submit */}
+                                <div className="flex justify-center mt-4">
                                     <button
                                         type="submit"
+                                        onClick={handleSubmit}
                                         className="bg-[#FF9B44] text-white px-4 py-2 rounded-md hover:bg-opacity-80"
                                     >
                                         Submit
@@ -341,7 +322,6 @@ const CreateProjectButton = () => {
                     </div>
                 </div>
             )}
-
             {error && <p>{error}</p>}
         </div>
     );

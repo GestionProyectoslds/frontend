@@ -18,29 +18,40 @@ const CreateProjectPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5153/api", {
-        projectName,
-        startDate,
-        categories,
-        subcategories,
-        rate,
-        number,
-        options,
-        projectLeader,
-        client,
-        endDate,
-        priority,
-        description,
-        files,
-      });
-      if (response.status === 200) {
-        Navigate("/ProjectsPage");
-        setShowForm(false); // Ocultar formulario
-      }
+        const response = await axios.post(
+            "http://localhost:5153/api",
+            {
+                projectName,
+                startDate,
+                categories,
+                subcategories,
+                rate,
+                number,
+                options,
+                projectLeader,
+                client,
+                endDate,
+                priority,
+                description,
+                files,
+            }
+        );
+        if (response.status === 200) {
+            console.log(response.data);
+            navigate("/ProjectsPage");
+            setShowForm(false); // Ocultar formulario
+        };
     } catch (error) {
-      setError("Invalid Request");
+        setError("Invalid Request")
     }
-  };
+    setShowForm(false); // Ocultar formulario
+
+    const handleFileChange = (event) => {
+        const fileList = event.target.files;
+        const fileArray = Array.from(fileList);
+        setFiles(fileArray);
+    };
+};
 
   return (
     <div>

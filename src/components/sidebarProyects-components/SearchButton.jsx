@@ -23,7 +23,7 @@ const ButtonSearch = () => {
           placeholder="Client ID"
           value={clientId}
           onChange={(e) => setClientId(e.target.value)}
-          className="flex-grow input-field border border-gray-300 rounded-md px-2 py-1"
+          className="flex w-full input-field border border-gray-300 rounded-md px-2 py-1"
         />
 
         <input
@@ -31,13 +31,13 @@ const ButtonSearch = () => {
           placeholder="Expert Name"
           value={employeeName}
           onChange={(e) => setExpertName(e.target.value)}
-          className="flex-grow input-field border border-gray-300 rounded-md px-2 py-1"
+          className="flex w-full input-field border border-gray-300 rounded-md px-2 py-1"
         />
 
         <select
           value={designation}
           onChange={(e) => setDesignation(e.target.value)}
-          className="flex-grow px-2 py-1 border border-gray-300 rounded-md"
+          className="flex w-full px-2 py-1 border border-gray-300 rounded-md"
         >
           <optgroup label="Category">
             <option value="" disabled>
@@ -51,7 +51,7 @@ const ButtonSearch = () => {
 
         <button
           type="button"
-          className="flex-grow bg-green-500 text-white h-10 rounded-md cursor-pointer px-4"
+          className="flex w-full justify-center bg-green-500 text-white h-10 rounded-md cursor-pointer px-4"
           onClick={() => console.log("SEARCH")}
         >
           Search
