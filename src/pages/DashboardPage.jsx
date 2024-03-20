@@ -2,10 +2,31 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCubes, faDollarSign, faGem, faUser, faCircleDot } from '@fortawesome/free-solid-svg-icons';
+import { faCubes, faDollarSign, faGem, faUser } from '@fortawesome/free-solid-svg-icons';
 import Cookies from 'js-cookie';
+import Array from '../components/Array';
 
 const DashboardPage = () => {
+  const [progress, setProgress] = useState(0);
+
+  const handleMouseDown = (e) => {
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const handleMouseMove = (e) => {
+    const container = document.querySelector('.progress-bar');
+    const containerWidth = container.offsetWidth;
+    const newPosition = Math.max(0, Math.min(e.clientX - container.offsetLeft, containerWidth));
+    const newProgress = Math.round((newPosition / containerWidth) * 100);
+    setProgress(newProgress);
+  };
+
+  const handleMouseUp = () => {
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+  };
+  
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -81,58 +102,106 @@ const DashboardPage = () => {
 
 
         <div className='mx-auto flex flex-row'>
-          <div className='w-full p-4'>
-            <div className='bg-white border rounded-md p-4'>
-              <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Estadísticas de Tareas</h2>
-              <form className='flex justify-between'>
-                <div className="w-full md:w-1/2 p-4">
-                  <div className="bg-white border rounded-md shadow-md p-4">
-                    <form action="">
-                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Totales</h2>
-                    </form>
-                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">{data.activitiesCount}</h2>
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 p-4">
-                  <div className="bg-white border rounded-md shadow-md p-4">
-                    <form action="">
-                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Atrasadas</h2>
-                    </form>
-                    <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">{data.overdueActivitiesCount}</h2>
-                  </div>
-                </div>
-              </form>
+          <div className='w-full md:w-1/2 p-4'>
               <div className='bg-white border rounded-md p-4'>
-                <form className='flex justify-between  mt-5'>
-                  <FontAwesomeIcon icon={faCircleDot} color='Purple' />
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas Completadas</h2>
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 16</h2>
+                <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Estadísticas</h2>
+                <div className='bg-white'>
+                  <div className=' border rounded-md p-4 mt-3'>
+                    <form className='flex justify-between'>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Hoy Salir</h2>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 0</h2>
+                    </form>
+                    {/*<div className="progress-container">
+                      <div className="progress-bar" onMouseDown={handleMouseDown}>
+                        <div className="progress" style={{ width: `${progress}%`}}></div>
+                      </div>
+                    </div>*/}
+                  </div>
+
+                  <div className=' border rounded-md p-4 mt-2'>
+                    <form className='flex justify-between'>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Factura Pendiente</h2>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 0</h2>
+                    </form>
+                    {/*<div className="progress-container">
+                      <div className="progress-bar" onMouseDown={handleMouseDown}>
+                        <div className="progress" style={{ width: `${progress}%`}}></div>
+                      </div>
+                    </div>*/}
+                  </div>
+
+                  <div className=' border rounded-md p-4 mt-2'>
+                    <form className='flex justify-between'>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Proyectos Completados</h2>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 0</h2>
+                    </form>
+                    {/*<div className="progress-container">
+                      <div className="progress-bar" onMouseDown={handleMouseDown}>
+                        <div className="progress" style={{ width: `${progress}%`}}></div>
+                      </div>
+                    </div>*/}
+                  </div>
+                  
+                  <div className=' border rounded-md p-4 mt-2'>
+                    <form className='flex justify-between'>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Entradas Abiertas</h2>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 0</h2>
+                    </form>
+                    {/*<div className="progress-container">
+                      <div className="progress-bar" onMouseDown={handleMouseDown}>
+                        <div className="progress" style={{ width: `${progress}%`}}></div>
+                      </div>
+                    </div>*/}
+                  </div>
+
+                  <div className='border rounded-md p-4 mt-2'>
+                    <form className='flex justify-between'>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Entradas Cerradas</h2>
+                      <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 0</h2>
+                    </form>
+                    {/*<div className="progress-container">
+                      <div className="progress-bar" onMouseDown={handleMouseDown}>
+                        <div className="progress" style={{ width: `${progress}%`}}></div>
+                      </div>
+                    </div>*/}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div className='w-full md:w-1/2 p-4'>
+              <div className='bg-white border rounded-md p-4'>
+                <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Estadísticas de Tareas</h2>
+                <form className='flex justify-between'>
+                  <div className="w-full md:w-1/2 p-4">
+                    <div className="bg-white border rounded-md shadow-md p-4">
+                      <form className="text-center">
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Totales</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-5xl">{data.activitiesCount}</h2>
+                      </form>
+                    </div>
+                  </div>
+                  <div className="w-full md:w-1/2 p-4">
+                    <div className="bg-white border rounded-md shadow-md p-4">
+                      <form className="text-center">
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg">Tareas Atrasadas</h2>
+                        <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-5xl">{data.overdueActivitiesCount}</h2>
+                      </form>
+                    </div>
+                  </div>
                 </form>
-                <form className='flex justify-between  mt-5'>
-                  <FontAwesomeIcon icon={faCircleDot} color='Pink' />
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas en Curso</h2>
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 11</h2>
-                </form>
-                <form className='flex justify-between  mt-5'>
-                  <FontAwesomeIcon icon={faCircleDot} color='Green' />
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas en Espera</h2>
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 10</h2>
-                </form>
-                <form className='flex justify-between  mt-5'>
-                  <FontAwesomeIcon icon={faCircleDot} color='Red' />
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas Pendientes</h2>
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 5</h2>
-                </form>
-                <form className='flex justify-between  mt-5'>
-                  <FontAwesomeIcon icon={faCircleDot} color='Blue' />
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> Tareas a Revisar</h2>
-                  <h2 className="text-xl font-bold mb-2 text-gray-950 sm:text-lg"> 3</h2>
-                </form>
+                    {/*<div className="progress-container">
+                      <div className="progress-bar" onMouseDown={handleMouseDown}>
+                        <div className="progress" style={{ width: `${progress}%`}}></div>
+                      </div>
+                    </div>*/}
+                <div className='bg-white mt-10'>
+                <Array activitiesCountByStatus={data.activitiesCountByStatus} />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
