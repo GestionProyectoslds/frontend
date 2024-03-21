@@ -21,7 +21,7 @@ function Sidebar() {
     <div className="text-gray-100 text-xl bg-white">
       <button
         type="button"
-        className="p-2.5 flex items-center align rounded-md px-4 duration-300 cursor-pointer hover:bg-slate-400 text-white bg-gray-100"
+        className="p-2.5 flex items-center align rounded-md px-4 duration-300 cursor-pointer hover:bg-slate-400 text-white bg-gray-100 z-50"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen}
@@ -29,7 +29,7 @@ function Sidebar() {
       </button>
 
       {isOpen && (
-        <div className='fixed top-20 left-0 h-screen bg-slate-700 w-60'>
+        <div className='fixed top-20 left-0 h-screen bg-slate-700 w-60 z-40'>
           <div className='p-2.5 mt-1 flex items-center'>
             <NavLink to="/" className='text-[15px] text-gray-200 font-bold ml-3'>
               Main

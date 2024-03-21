@@ -34,21 +34,20 @@ const ProjectPage = () => {
           <label className='text-2xl font-bold mt-10'>Project</label>
         </div>
 
-        <div className="flex items-center mt-2 -mr-16">
+        <div className="flex items-center justify-between mt-2">
           <label className="text-base font-bold">Dashboard</label>
-          <div className="flex-grow" />
           <CreateProjectButton />
         </div>
         <div className="mt-4 mb-4"> {/* Agregado el margen superior aquí */}
           <SearchButton />
         </div>
 
-        
+
         {/* codigo de eduardo -------------------------------------*/}
         <div className="container-wrapper ">
           {/* contenedor 1*/}
           <div className="container">
-             <h2 className="title">Office Management</h2>
+            <h2 className="title">Office Management</h2>
             <p className="text">2  open tasks, 5 tasks completed</p>
             <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry.</p>
             <h3 className="subtitle">Deadline:</h3>
@@ -141,7 +140,7 @@ const ProjectPage = () => {
 
           {/* contenedor 3*/}
           <div className="container">
-          <h2 className="title">Video Calling App</h2>
+            <h2 className="title">Video Calling App</h2>
             <p className="text">2  open tasks, 5 tasks completed</p>
             <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry.</p>
             <h3 className="subtitle">Deadline:</h3>
@@ -187,7 +186,7 @@ const ProjectPage = () => {
 
           {/* contenedor 4*/}
           <div className="container">
-          <h2 className="title">Hospital Administration</h2>
+            <h2 className="title">Hospital Administration</h2>
             <p className="text">2  open tasks, 5 tasks completed</p>
             <p className="text">Lorem ipsum is simply dummy text of the printing and typesentting industry.</p>
             <h3 className="subtitle">Deadline:</h3>
