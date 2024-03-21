@@ -29,7 +29,7 @@ const Dashboard = () => {
       }
 
       const config = {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `bearer ${token}` }
       };
 
       const response = await axios.post(
@@ -57,7 +57,7 @@ const Dashboard = () => {
     const formattedDate = new Date(dateString).toLocaleDateString('en-US', options);
     return formattedDate;
   };
-  
+
 
   return (
     <div>
@@ -75,7 +75,7 @@ const Dashboard = () => {
           <SearchButton />
         </div>
 
-        <div className=" w-auto mx-auto border-gray-500 rounded-xl max-h-[650px]">
+        <div className="overflow-auto w-auto mx-auto border-gray-500 rounded-xl max-h-[650px]">
           <table className="table-auto w-full text-left">
             <thead>
               <tr className="sticky top-0 bg-white z-10">
@@ -202,26 +202,20 @@ const Dashboard = () => {
                     />
                   </td>
                   <td className="border-b border-[#E2E5E8] px-4 py-3 text-base">
-                    {/**     <StatusDropdown
-                      status={project.isActive ? "true" : "false"}
-                      projectId={project.id}
-                      onStatusChange={(isActive) =>
-                        handleStatusChange(isActive)
-                      }
-                    />*/}
-                  </td>
-                  <td className="border-b border-[#E2E5E8] px-4 py-3 text-base">
-                  {/**  <PriorityDropdown
+                    <PriorityDropdown
                       priority={project.priority}
-                      projectId={project.projectid}
-                      onStatusChange={handlePriorityChange}
-                    />*/}
+                      projectId={project.id}
+                      onPriorityChange={(priority) =>
+                        handlePriorityChange(priority)
+                      }
+                    />
                   </td>
+
                   <td className="border-b border-[#E2E5E8] px-4 py-3 text-base">
-                   {/** <ActionDropdown
+                    <ActionDropdown
                       onEdit={() => handleEditProject(project.id)}
                       onDelete={() => handleDeleteProject(project.id)}
-                    />*/}
+                    />
                   </td>
                 </tr>
               ))}

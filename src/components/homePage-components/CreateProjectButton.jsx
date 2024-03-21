@@ -39,14 +39,16 @@ const CreateProjectButton = () => {
                 return;
             }
             const config = {
-                headers: { Authorization: `Bearer ${token}` }
+                headers: { Authorization: `bearer ${token}` }
             };
             const defaultData = {
                 // Valores predeterminados
                 cost: 0,
                 comments: "Comentarios no proporcionados",
                 isActive: true,
-                projectManagerId: 0
+                projectManagerId: 0,
+                priority: 1
+               
             };
             const formData = {
                 name: projectName,
@@ -163,7 +165,7 @@ const CreateProjectButton = () => {
                                                 onChange={(e) => setStartDate(e.target.value)}
                                             />
                                         </div>
-
+                                        {/*
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="categories"
@@ -182,8 +184,8 @@ const CreateProjectButton = () => {
                                                 <option value="option3">Option 3</option>
                                             </select>
 
-                                        </div>
-
+                                        </div> */}
+                                        {/* 
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="subcategories"
@@ -201,7 +203,7 @@ const CreateProjectButton = () => {
                                                 <option value="opcion2">Opción 2</option>
                                                 <option value="opcion3">Opción 3</option>
                                             </select>
-                                        </div>
+                                        </div>*/}
 
                                         <div className="mb-4 flex">
                                             <div className="w-1/2 mr-2">
@@ -220,6 +222,7 @@ const CreateProjectButton = () => {
                                                     onChange={(e) => setBudget(e.target.value)} // Actualiza el estado budget cuando cambia el valor del campo
                                                 />
                                             </div>
+                                            {/*
                                             <div className="w-1/2">
                                                 <label
                                                     htmlFor="options"
@@ -235,11 +238,12 @@ const CreateProjectButton = () => {
                                                     <option value="option1">Hourly</option>
                                                     <option value="option2">Fixed</option>
                                                 </select>
-                                            </div>
+                                            </div>*/}
                                         </div>
                                     </div>
                                     <div className="w-1/2 pl-4">
                                         {/* Columna derecha */}
+                                        {/*
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="client"
@@ -256,7 +260,7 @@ const CreateProjectButton = () => {
                                                 <option value="option1">Global Technologies</option>
                                                 <option value="option2">InfoTech View</option>
                                             </select>
-                                        </div>
+                                        </div>*/}
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="endDate"
@@ -273,7 +277,7 @@ const CreateProjectButton = () => {
                                                 onChange={(e) => setEndDate(e.target.value)}
                                             />
                                         </div>
-
+                                        {/*
                                         <div className="mb-4">
                                             <label
                                                 htmlFor="priority"
@@ -284,6 +288,7 @@ const CreateProjectButton = () => {
                                             <select
                                                 id="priority"
                                                 name="priority"
+                                                
                                                 className="mt-1 p-2 border rounded-md w-full"
                                             >
                                                 <option value="" disabled>Select</option>
@@ -292,7 +297,7 @@ const CreateProjectButton = () => {
                                                 <option value="option3">Low</option>
                                             </select>
 
-                                        </div>
+                                        </div>*/}
 
                                     </div>
                                 </div>

@@ -1,62 +1,74 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCircleDot } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import Cookies from "js-cookie"; // Importa js-cookie para manejar cookies
 
-const PriorityDropdown = ({ priority, projectId, onPriorityChange }) => {
-    // Estado para controlar la visibilidad del menú desplegable
+const PriorityDropdown = ({ priority, projectId }) => {
     const [showDropdown, setShowDropdown] = useState(false);
 
-    // Función para manejar el cambio de prioridad
-    const handlePriorityChange = (priority) => {
-        // Llama a la función proporcionada desde el componente padre para manejar el cambio de prioridad
-        onPriorityChange(projectId, priority);
-        // Oculta el menú desplegable después de seleccionar una prioridad
+    const handlePriorityChange = async (priority) => {
+        try {
+            const token = Cookies.get("token"); // Obtiene el token de la cookie
+            const response = await axios.put(
+                "/api/Projects/update",
+                {
+                    id: projectId,
+                    priority: priority
+                },
+                {
+                    headers: {
+                        Authorization: `bearer ${token}` // Agrega el token como encabezado de autorización
+                    }
+                }
+            );
+            if (response.status === 200) {
+                console.log("Prioridad actualizada en el backend:", priority);
+            }
+        } catch (error) {
+            console.error("Error al actualizar la prioridad:", error);
+        }
         setShowDropdown(false);
     };
 
+    const mapPriority = (priority) => {
+        switch (priority) {
+            case 1:
+                return { label: "Low", color: "#699834" };
+            case 2:
+                return { label: "Medium", color: "#FFBC34" };
+            case 3:
+                return { label: "High", color: "#F62D51" };
+            default:
+                return { label: "Unknown", color: "#000000" };
+        }
+    };
+
+    const { label, color } = mapPriority(priority);
+
     return (
-        // Contenedor principal del componente
         <div className="priority-dropdown relative">
-            {/* Botón para abrir/cerrar el menú desplegable */}
             <button className="dropdown-toggle px-4 py-1 border border-gray-400 bg-white rounded-full flex items-center w-full justify-between" type="button" onClick={() => setShowDropdown(!showDropdown)}>
-                {/* Muestra el ícono y el nombre de la prioridad actual */}
-                {priority === "High" && (
-                    <React.Fragment>
-                        <FontAwesomeIcon icon={faCircleDot} style={{ color: "#F62D51", marginRight: "5px" }} />
-                        High
-                    </React.Fragment>
-                )}
-                {priority === "Medium" && (
-                    <React.Fragment>
-                        <FontAwesomeIcon icon={faCircleDot} style={{ color: "#FFBC34", marginRight: "5px" }} />
-                        Medium
-                    </React.Fragment>
-                )}
-                {priority === "Low" && (
-                    <React.Fragment>
-                        <FontAwesomeIcon icon={faCircleDot} style={{ color: "#699834", marginRight: "5px" }} />
-                        Low
-                    </React.Fragment>
-                )}
-                {/* Ícono para indicar la acción de desplegar el menú */}
+                <React.Fragment>
+                    <FontAwesomeIcon icon={faCircleDot} style={{ color: color, marginRight: "5px" }} />
+                    {label}
+                </React.Fragment>
                 <FontAwesomeIcon icon={faCaretDown} className="ml-1" />
             </button>
-            {/* Menú desplegable para seleccionar la prioridad */}
             {showDropdown && (
                 <div className="dropdown-menu absolute top-full left-0 z-50 bg-white border border-gray-400 rounded-lg w-full flex items-center justify-between shadow-md">
                     <ul className="list-none p-0 m-0 w-full">
-                        {/* Opciones de prioridad */}
-                        <li className="px-2 py-2 cursor-pointer rounded-t-lg hover:bg-gray-100" onClick={() => handlePriorityChange("High")}>
-                            <FontAwesomeIcon icon={faCircleDot} style={{ color: "#F62D51", marginRight: "5px" }} />
-                            High
+                        <li className="px-2 py-2 cursor-pointer rounded-t-lg hover:bg-gray-100" onClick={() => handlePriorityChange(1)}>
+                            <FontAwesomeIcon icon={faCircleDot} style={{ color: "#699834", marginRight: "5px" }} />
+                            Low
                         </li>
-                        <li className="px-2 py-2 cursor-pointer hover:bg-gray-100" onClick={() => handlePriorityChange("Medium")}>
+                        <li className="px-2 py-2 cursor-pointer hover:bg-gray-100" onClick={() => handlePriorityChange(2)}>
                             <FontAwesomeIcon icon={faCircleDot} style={{ color: "#FFBC34", marginRight: "5px" }} />
                             Medium
                         </li>
-                        <li className="px-2 py-2 cursor-pointer rounded-b-lg hover:bg-gray-100" onClick={() => handlePriorityChange("Low")}>
-                            <FontAwesomeIcon icon={faCircleDot} style={{ color: "#699834", marginRight: "5px" }} />
-                            Low
+                        <li className="px-2 py-2 cursor-pointer rounded-b-lg hover:bg-gray-100" onClick={() => handlePriorityChange(3)}>
+                            <FontAwesomeIcon icon={faCircleDot} style={{ color: "#F62D51", marginRight: "5px" }} />
+                            High
                         </li>
                     </ul>
                 </div>
