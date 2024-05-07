@@ -111,11 +111,11 @@ const ForgotPassword = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-red-100">
       <div className="mx-auto bg-white p-8 rounded-lg shadow-md sm:p-8 sm:max-w-md md:max-w-2xl w-full">
 
         <a href="/HomePage">
-          <img id="logo" src="/src/images/logoCLA.png" alt="Community Lab Alliance Logo" />
+          <img id="logo" src="/src/images/Logo2.jpg" alt="Wanpi Logo" />
         </a>
 
         {step === 1 && (
@@ -137,7 +137,7 @@ const ForgotPassword = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-[#4CB5AB] text-white py-2 rounded-lg hover:bg-[#389389]"
+              className="w-full  bg-red-300 text-white py-2 rounded-lg  hover:bg-red-400"
             >
               Send OTP
               <FontAwesomeIcon icon={faArrowRight} className="ml-1 align-middle" />
@@ -247,7 +247,7 @@ const ForgotPassword = () => {
           </form>
         )}
         <div className="mt-4 flex items-center justify-center">
-          <Link to="/LoginPage" className="ml-1 text-[#4CB5AB] hover:text-[#389389] hover:underline">
+          <Link to="/LoginPage" className="ml-1 text-red-300 hover:text-red-400 hover:underline">
             Back to LogIn
           </Link>
         </div>

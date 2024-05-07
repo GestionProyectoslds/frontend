@@ -96,13 +96,13 @@ const SignUp = () => {
     setUserTypeError(""); // Restablecer el mensaje de error cuando se selecciona una opción
   };
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-red-100">
       <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
         <a href="/HomePage">
           <img
             id="logo"
-            src="/src/images/logoCLA.png"
-            alt="Community Lab Alliance Logo"
+            src="/src/images/Logo2.jpg"
+            alt="Wanpi Logo"
           />
         </a>
         <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
@@ -232,7 +232,7 @@ const SignUp = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-[#4CB5AB] text-white py-2 rounded-lg hover:bg-[#389389]"
+              className="w-full bg-red-300 text-white py-2 rounded-lg hover:bg-red-400"
             >
               Next
               <FontAwesomeIcon
@@ -385,7 +385,7 @@ const SignUp = () => {
         <div className="mt-4 flex items-center justify-center">
           <Link
             to="/LoginPage"
-            className="ml-1 text-[#b4d334] hover:text-[#b4d334] hover:underline"
+            className="ml-1  text-red-300 hover:text-red-400 hover:underline"
           >
             Already have an account? Sign In
           </Link>

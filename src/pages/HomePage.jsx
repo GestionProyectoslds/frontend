@@ -1,105 +1,147 @@
 import React from "react";
-import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SliderOne from "../components/homePage-components/homePage-sliderOne";
-import SliderTwo from "../components/homePage-components/homePage-sliderTwo";
-import SliderThree from "../components/homePage-components/homePage-sliderThree";
-import RecentArticles from "../components/homePage-components/homePage-recentArticles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image16 from "../images/imghome/Logo13.jpg";
-import Image17 from "../images/imghome/Logo14.jpg";
 import "../styles/homePage.css";
+import Header from "../components/Header";
+import Mazda3 from "../images/Mazda3.png";
+import Corvette from "../images/Corvette.png";
+import Mustang from "../images/Mustang.png";
+import Sentra from "../images/Sentra.png";
+import Polo from "../images/Polo.png";
+import Aveo from "../images/Aveo.jpg";
+import Jetta from "../images/Jetta.jpg";
+import Swift from "../images/Swift.jpg";
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-col min-h-screen bg-white">
-        <NavBar />
-        {/* Div examples carousel */}
-        <SliderOne />
-      </div>
-      <div className="flex flex-col bg-white shadow mt-8">
-        {/* div allies carousel */}
-        <SliderTwo />
-      </div>
-      <div className="flex flex-col bg-white shadow">
-        <br />
-        <br />
-        {/* contribute and solution image */}
-        <div className="flex justify-center mt-8">
-          <img src={Image16} alt="Logo 13" />
-        </div>
-        <br />
-        <br />
-        <center>
-          <h1 className="h1-green">¿Cómo funciona?</h1>
-          <p className="p-black">
-            Somos la única plataforma en español que conecta, gestiona y
-            capacita equipos freelance para ofrecer
-            <br /> soluciones integrales para empresas
-          </p>
-        </center>
-        {/* contact image */}
-        <div className="flex justify-center mt-8">
-          <img src={Image17} alt="Logo 14" />
-        </div>
-        <br />
-        {/* rectangle grey */}
-        <div className="rec-testimony">
-          {/* Testimony text */}
-          <h1 className="h1-darkGreen">Testimonios</h1>
-          {/* personal Rectangle */}
-          <div className="rec-testimony__newRec">
-            {/* Column 1 */}
-            <div className="rec-testimony__column">
-              <h2 className="h2-darkBlue">
-                “Aprendí que no quiero ser programadora toda la vida pero que
-                saber sobre Tecnología me va a ayudar en lo que sea que haga”
-              </h2>
-              <p className="p-lightGreen">
-                (Belém, estudiante de preparatoria)
-              </p>
-              <h2 className="h2-darkBlue">
-                “En este equipo entendí que un científico también puede trabajar
-                fuera del laboratorio y que los ingenieros necesitan aprender
-                más sobre negocios y mercadotecnia”.
-              </h2>
-              <p className="p-lightGreen"> (Francisco- Freelance)</p>
+    <div className="bg-red-100">
+      <Header />
+        <h1 class="text-3xl font-bold text-center mt-10">Conoce nuestros autos nuevos</h1>
+
+        <div class="flex flex-wrap justify-center mt-4">
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+              <form class="flex flex-col justify-between items-center">
+                <img src={Mazda3} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Mazda3 Sedán</h2>
+                <h2 class="text-lg font-bold mb-2">2024 - Automático</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $392,900</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
             </div>
-            {/* Column 2 */}
-            <div className="rec-testimony__column">
-              <h2 className="h2-darkBlue">
-                “Gracias a su programa de digitalización tenemos mejor control
-                de nuestros procesos y documentos, eso nos va a ayudar a crecer
-                más”.
-              </h2>
-              <p className="p-lightGreen">
-                (Ivett, empleada en agencia de viajes)
-              </p>
-              <h2 className="h2-darkBlue">
-                “Los productos que adquirimos en el marketplace de Community Lab
-                Alliance son mejores cada día”.
-              </h2>
-              <p className="p-lightGreen">
-                (Fabian- Gerente en empresa de electrocomponentes)
-              </p>
+          </div>
+
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+            <form class="flex flex-col justify-between items-center">
+                <img src={Corvette} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Chevrolet Corvette</h2>
+                <h2 class="text-lg font-bold mb-2">2024 - Automático</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $2,999,900.00</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+            <form class="flex flex-col justify-between items-center">
+                <img src={Mustang} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Ford Mustang</h2>
+                <h2 class="text-lg font-bold mb-2">2024 - Estandar</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $392,900</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
+            </div>
+          </div>
+        </div>  
+
+        <div class="flex flex-wrap justify-center mt-4">
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+              <form class="flex flex-col justify-between items-center">
+                <img src={Polo} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Volkswagen Polo</h2>
+                <h2 class="text-lg font-bold mb-2">2024 - Automático</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $408,970</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+            <form class="flex flex-col justify-between items-center">
+                <img src={Sentra} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Nissan Sentra</h2>
+                <h2 class="text-lg font-bold mb-2">2024 - Automático</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $401,900</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
             </div>
           </div>
         </div>
-        <br />
-        <br />
-        <center>
-          <h1 className="h1-green">Aliados</h1>
-        </center>
-        {/* div allies logos carousel */}
-        <SliderThree />
-        <br />
-        <br />
-        <RecentArticles />
-      </div>
+
+        <h1 class="text-3xl font-bold text-center mt-10">Conoce nuestros autos semi-nuevos</h1>
+
+        <div class="flex flex-wrap justify-center mt-4">
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+              <form class="flex flex-col justify-between items-center">
+                <img src={Aveo} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Chevrolet Aveo</h2>
+                <h2 class="text-lg font-bold mb-2">2018 - 80,300km - Estandar</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $167,999</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+            <form class="flex flex-col justify-between items-center">
+                <img src={Jetta} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Volkswagen Jetta</h2>
+                <h2 class="text-lg font-bold mb-2">2018 - 103,710km - Automático</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $210,900</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white rounded-md shadow-md p-4">
+            <form class="flex flex-col justify-between items-center">
+                <img src={Swift} class="h-40 w-full object-cover mb-4" alt="" />
+                <h2 class="text-lg font-bold mb-2">Suzuki Swift</h2>
+                <h2 class="text-lg font-bold mb-2">2022- 14,026km - Estandar</h2>
+                <h2 class="text-lg font-bold mb-2">Precio de contado: $288,999</h2>
+                <NavLink to="/AboutCar">
+                  Ver Más
+                </NavLink>
+              </form>
+            </div>
+          </div>
+        </div>  
+
       <Footer />
-    </div>
+  </div>  
   );
 };
 export default HomePage;

@@ -44,18 +44,19 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-red-100">
       <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
         <a href="/">
           <img
-            id="logo"
-            src="/src/images/logoCLA.png"
-            alt="Community Lab Alliance Logo"
+            id="Logo"
+            src="/src/images/Logo2.jpg"
+            alt="Wanpi Logo"
+            className="h-20"
           />
         </a>
         <h1 className="text-2xl font-bold -mb-1">Log In</h1>
         <h2 className="text-lg font-bold mb-4">
-          to access Community Lab Alliance
+          to access Wanpi Inc
         </h2>
         <form onSubmit={logInSubmit}>
           <div className="mb-4">
@@ -92,7 +93,7 @@ const LoginPage = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#4CB5AB] text-white mb-3 py-2 rounded-lg hover:bg-[#389389] "
+            className="w-full bg-red-300 text-white mb-3 py-2 rounded-lg hover:bg-red-400"
             onClick={logInSubmit}
           >
             Log In
@@ -103,7 +104,7 @@ const LoginPage = () => {
                 Don't have an account?{" "}
                 <Link
                   to="/SignUpPage"
-                  className="hover:underline text-base text-[#4CB5AB] hover:text-[#389389]"
+                  className="hover:underline text-base text-red-300 hover:text-red-400"
                 >
                   Sign Up
                 </Link>
@@ -114,7 +115,7 @@ const LoginPage = () => {
             <div className="flex justify-center">
               <Link
                 to="/ForgotPassword"
-                className="text-[#4CB5AB] hover:text-[#389389] hover:underline text-base"
+                className=" text-red-300 hover:text-red-400 hover:underline text-base"
               >
                 Forgot Password
               </Link>

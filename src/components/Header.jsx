@@ -1,25 +1,20 @@
 import React from "react";
-import Image from "../images/imghome/Logo15.jpg";
+import { NavLink } from "react-router-dom";
+import Image from "../images/Logo2.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBell, faEnvelope, faUser } from "@fortawesome/free-solid-svg-icons";
-import Sidebar from "../components/Sidebar";
+import { faSearch, faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
 const BarraVenta = () => {
   return (
-    <div className="bg-white border-b border-black flex items-center h-20 px-4 md:px-8 lg:px-16 xl:px-4 justify-between">
-      {/* Sección izquierda de la barra, incluye el logo y el botón de menú */}
+    <div className="bg-red-400 border-b border-black flex items-center h-20 px-4 md:px-8 lg:px-16 xl:px-4 justify-between">
       <div className="flex items-center">
-        <Sidebar />
         <img
           src={Image}
           alt="Logo"
-          className="ml-4  bg-white max-h-16 md:max-h-full"
+          className="ml-4 md:max-h-full size-20"
         />
       </div>
-
-      {/* Sección derecha de la barra, incluye el campo de búsqueda y los botones de notificaciones y mensajes */}
       <div className="flex items-center">
-        {/* Campo de búsqueda */}
         <div className="search-wrapper flex flex-row justify-end items-center w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mr-4">
           <input
             type="text"
@@ -31,17 +26,26 @@ const BarraVenta = () => {
           </button>
         </div>
 
-        {/* Botones de notificaciones, mensajes y perfil */}
         <div className="flex space-x-2">
-          <button className="border-none bg-white">
-            <FontAwesomeIcon icon={faBell} />
+          <button  className="border-none bg-red-400">
+            <NavLink to="NewCarsPage" className="text-gray-700 hover:text-red-500 transition duration-300 mt-3">
+              Nuevos
+            </NavLink>
+          </button>            
+
+          <button  className="border-none bg-red-400">
+            <NavLink to="UsedPage" className="text-gray-700 hover:text-red-500 transition duration-300 mt-3">
+              Semi-Nuevos
+            </NavLink>
           </button>
-          <button className="border-none bg-white">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </button>
-          <button className="border-none bg-white">
-            <FontAwesomeIcon icon={faUser} />
-          </button>
+            
+            <button  className="border-none bg-red-400">
+            <NavLink to="LoginPage">
+              <div>
+                <FontAwesomeIcon icon={faAddressCard} className="text-xl" color="black"/>
+              </div>
+            </NavLink>
+            </button>
         </div>
       </div>
     </div>
